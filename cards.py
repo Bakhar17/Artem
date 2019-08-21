@@ -104,10 +104,3 @@ while True:
                 c=str(input())
         else:
             break
-        
-            
-
-    
-
-
-    
