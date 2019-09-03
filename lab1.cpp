@@ -37,7 +37,7 @@ int main() {
 	cout << "y= " ;
 	cout << y << endl;
 	cout << "4  ";
-	float d;
+	double d;
 	d =((3 + x * x - y * y * y)*1. * (x + 3) * (x + 3) / (x - y * y));
 	cout << "Get: ";
 	cout << d<<endl;
@@ -107,13 +107,13 @@ int main() {
 	cout << "Put x:";
 	cin >> q;
 	d = q * q;
-	float f;
+	double f,h;
 	f = 4 * d * q + 3 * d + 2 * q + 1;
-	q = -q * (4 * d - 3 * x + 2) + 1;
+	h = q * (-4 * d + 3 * q - 2) + 1;
 	cout << "(1): ";
 	cout << f<<endl;
 	cout << "(2): ";
-	cout << q;
+	cout << h;
 	system("pause");
 
 }
