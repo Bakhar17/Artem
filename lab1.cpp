@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -101,7 +102,7 @@ int main() {
 	w10b = w10a * w10a;
 	w10 = w10b * w10b;
 	cout << "a^64=";
-	cout << w10 << endl;
+	cout << static_cast<unsigned long long>(w10) << endl;
 
 	cout << "7  ";
 	cout << "Put x:";
