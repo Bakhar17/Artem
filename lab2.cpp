@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstdlib>
 
 using namespace std;
 
@@ -25,7 +25,7 @@ else
 system("pause");
 }
 */
-/*{
+/*summa number{
 	int n, s = 0;
 	cout << "Vvod n: ";
 	cin >> n;
@@ -37,9 +37,9 @@ system("pause");
 	}
 	cout << "summa: " << s;
 	system("pause");
-}
+}*/
 
-{
+/* data{
 	int day, mon, year;
 	cout << "Today: \n";
 	cin >> day;
@@ -127,8 +127,8 @@ system("pause");
 		break;
 	}
 	}
-}
-{
+}*/
+/* task5 factorial{
 int n;
 cout << "Vvod n: ";
 cin >> n;
@@ -141,44 +141,30 @@ for (int i = 1; i <= n; i++)
 }
 cout << summa;
 }*/
-/*{
-int n;
-cin >> n;
-int i = 2;
-int del;
-int znam=2;
-while (znam <= n)
-{
-	del = 1;
-	for (; del < znam; del++)
+/* task2 {
+	int del = 1, znam = 1;
+	int n;
+	cout << "Vvod n: ";
+	cin >> n;
+	for (; znam < n; znam++)
 	{
-		cout << del << "/" << znam << "\n";
-	}
-	znam++;
-}
-}*/
-{
-	int a, b, c, vr;
-	cin >> a;
-	cin >> b;
-	c = a % b;
-	if (c == 0 && c!=1)
-	{
-		cout << b;
-	}
-	else
-	{
-	
-	while (b!=c)
-	{
-		if (b % c != 0)
+		int del1, znam1;
+		for (; del < znam; del++)
 		{
-
-			vr = c;
-			c = b % c;
-			b = vr;
+			del1 = del;
+			znam1 = znam;
+			do
+			{
+				if (del1 > znam1)
+					del1 = del1 % znam1;
+				else
+					znam1 = znam1 % del1;
+			} while (del1 != 0 && znam1 != 0);
+			if (znam1 + del1 == 1)
+				cout << del << "/" << znam << "\n";
 		}
-		cout << c;
+		del = 1;
+
 	}
 }
-}
+*/
