@@ -1,5 +1,8 @@
 #include <iostream>
-#include <cstdlib>
+
+/*
+  Бахар Артём, 1 курс, 1 поток, 4 группа. Лаб.2.
+*/
 
 using namespace std;
 
