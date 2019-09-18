@@ -2,20 +2,18 @@
 #include <string>
 #include <vector>
 using namespace std;
-/*int a;
+int a;
 bool pal1(int a)
-{		
+{
 	string c = to_string(a);
-	for (int i = 0, b = (c.length()-1); i <= b / 2; i++)
-
-		if (c[i] != c[b - i])
-		{
-			return false;
+	for (int i = 0, b = (c.length() - 1); i <= b / 2; i++)
+	{
+	
+	if (c[i] != c[b - i])
+	{
+		return false;
 	}
-		else
-		{
-			return true;
-		}
+}
 }
 int main()
 {
@@ -32,8 +30,8 @@ int main()
 
 	}
 
-}*/
-void task1(int N)
+}
+/*void task1(int N)
 {
 	std::cout << "N= ";
 	cin >> N;
@@ -134,4 +132,4 @@ int main()
 
 	}
 	
-}
+}*/
