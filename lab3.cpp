@@ -103,17 +103,26 @@ void armstrong()
 	int N;
 	cout << "Put N: ";
 	cin >> N;
-	int N1;
-	for (size_t i = 1; i < N; i++)
+	int i1,N1;
+	for (size_t i = 10; i < N; i++)
 	{
-		N1 = N;
+		N1=i1 = i;
 		int kol=0;
-		while(N1>=1)
+		while(i1>=1)
 		{
 			kol += 1;
+			i1 /= 10;
+		}
+		int summa = 0;
+		for (size_t i = 1; i <=kol; i++)
+		{
+			summa += pow(N1 % 10, kol);
 			N1 /= 10;
 		}
-		cout << kol;
+		if (summa == i)
+		{
+			cout << i << " ";
+		}
 	}
 }
 	int main()
