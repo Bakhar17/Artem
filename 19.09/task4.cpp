@@ -7,22 +7,28 @@ bool cherk(int a, int b)
 {
 	string ish = to_string(a);
 	string vih = to_string(b);
-	int i = 0;
-	while (a != b && ish.length() > vih.length() && i<ish.length()) {
-		if (ish[i] != vih[i])
+	int i = 0, k = 0;
+	while (i < ish.size() && k < vih.size())
+	{
+		if (ish[i] != vih[k])
 		{
-			vih.erase(vih[i]);
+			k++;
 		}
 		else
 		{
-			if (i<ish.length())
-			i = i + 1;
+			i++; 
+			k++;
 		}
 	}
-	if (a != b)
+	if (i < ish.length())
 	{
-		return false;
+		i++;
 	}
+	if (ish[i - 1] != vih[k - 1])
+	{
+		return false ;
+	}
+	
 }
 
 
