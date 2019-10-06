@@ -129,25 +129,63 @@ int task6(vector<T> & a)
 	}
 	return a[0];
 }
+template<class T>
+bool task8(vector<T>& a, vector<T>& b)
+{
+	int i = 1;
+	int k = 1;
+	for (; i < size(b) ; i++)
+	{
+		for (; k < size(a) ; k++)
+		{
+			if (b[i] == a[k] && b[i - 1] == a[k - 1])
+			{
+				break;
+			}
+		}
+	}
+	cout << i << "\t" << k;
+	if (k >= size(a))
+	{
+		return false;
+	}
+	if (i>=size(b))
+	{i -= 1; }
 
+	for (; i >=0;i--)
+	{
+		if (b[i] != a[k])
+		{
+			return false;
+		}
+		k--;
+	}
+}
 int main()
 {
 	cout << "Task number: ";
 	int n;
 	cin >> n;
-	vector<int> nomer1{ 15,20,98,20,16,16 };//задание 1
+	vector<int> nomer1{ 15,20,98,20,16,16,98 };//задание 1
 	vector<int> nomer2{ 1,5,48,64,78,1,2,56 };//задание 2
 	vector<int> nomer4{ 15,54,84,6,48,75,12 };//задание 4
-	vector<int> nomer6 = { 5564,4654,48,213,98,4847};
+	vector<int> nomer6  { 5564,4654,48,213,98,4847};//задание 6
+	
+													
+	//задание 8 
+
+
+	vector<int> nomer8_1{ 5,7,56,468,21,45,12};
+	vector<int> nomer8_2{56,468,21,5};
 	switch (n)
 	{
 	case(1):
 
 		task1(nomer1);
-		break;	
+		break;
 	case(2):
 		task2(nomer2);
-			break;
+		break;
 	case(4):
 		task4(nomer4);
 		break;
@@ -156,11 +194,19 @@ int main()
 	case(5):
 		break;
 	case(6):
-		cout<<"min element: " << (task6(nomer6));
+		cout << "min element: " << (task6(nomer6));
 		break;
 	case(7):
 		break;
 	case(8):
+		if (task8(nomer8_1, nomer8_2))
+		{
+			cout << "True";
+		}
+		else
+		{
+			cout << "False";
+		}
 		break;
 	}
 }
