@@ -1,0 +1,16 @@
+﻿  main.cpp
+E:\labs\sortirovka\sort\sort.h(130,34): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\sortirovka\sort\iodata.h(8,23): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\sortirovka\sort\iodata.h(12,23): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\sortirovka\sort\main.cpp(13,12): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+E:\labs\sortirovka\sort\main.cpp(21,25): warning C4244:  инициализация: преобразование "_Rep" в "double", возможна потеря данных
+E:\labs\sortirovka\sort\main.cpp(21,25): warning C4244:         with
+E:\labs\sortirovka\sort\main.cpp(21,25): warning C4244:         [
+E:\labs\sortirovka\sort\main.cpp(21,25): warning C4244:             _Rep=__int64
+E:\labs\sortirovka\sort\main.cpp(21,25): warning C4244:         ]
+E:\labs\sortirovka\sort\main.cpp(22,30): warning C4244:  инициализация: преобразование "_Rep" в "double", возможна потеря данных
+E:\labs\sortirovka\sort\main.cpp(22,30): warning C4244:         with
+E:\labs\sortirovka\sort\main.cpp(22,30): warning C4244:         [
+E:\labs\sortirovka\sort\main.cpp(22,30): warning C4244:             _Rep=__int64
+E:\labs\sortirovka\sort\main.cpp(22,30): warning C4244:         ]
+  sort.vcxproj -> E:\labs\sortirovka\sort\Debug\sort.exe

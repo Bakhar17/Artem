@@ -1,0 +1,10 @@
+﻿  main.cpp
+E:\labs\sortirovka\sort\sort.h(130,34): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\sortirovka\sort\iodata.h(8,23): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\sortirovka\sort\iodata.h(12,23): warning C4018:  <: несоответствие типов со знаком и без знака
+  Создание кода
+  3 of 61 functions ( 4.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  sort.vcxproj -> E:\labs\sortirovka\sort\Release\sort.exe
