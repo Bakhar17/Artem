@@ -161,6 +161,59 @@ bool task8(vector<T>& a, vector<T>& b)
 		k--;
 	}
 }
+
+void task7(vector<int>& a, int n)
+{
+
+		int temp,i; 
+		for (int counter = 1; counter < size(a); counter++)
+		{
+			temp = a[counter]; // инициализируем временную переменную текущим значением элемента массива
+			i = counter - 1; // запоминаем индекс предыдущего элемента массива
+			while (i >= 0 && a[i] > temp) // пока индекс не равен 0 и предыдущий элемент массива больше текущего
+			{
+				a[i + 1] = a[i]; // перестановка элементов массива
+				a[i] = temp;
+				i--;
+			}
+		}
+		for (size_t i = 0; i < size(a); i++)
+		{
+			cout << a[i] << "\t";
+		}
+		int left = 0;
+		int mid;
+		int right = size(a);
+		while (right != left)
+		{
+			mid = (left + right) / 2;
+			if (n < a[mid])
+			{
+				right = mid - 1;
+			}
+			else
+			{
+				if (n > a[mid])
+					left = mid + 1;
+				else
+				{
+					mid= mid + 1;
+					break;
+				}
+			}
+		}
+		if (left != right)
+		{
+			cout <<"\n"<<"Requested position: "<< mid;
+		}
+		else
+		{
+			cout << "\n" <<"Requested position: "<< left;
+		}
+}
+
+
+
 int main()
 {
 	cout << "Task number: ";
@@ -173,10 +226,10 @@ int main()
 	
 													
 	//задание 8 
-
-
 	vector<int> nomer8_1{ 5,7,56,468,21,45,12};
 	vector<int> nomer8_2{56,468,21,5};
+	//задание 7:
+	vector<int> nomer7{ 15,48,6,5,78,21,35 };
 	switch (n)
 	{
 	case(1):
@@ -197,6 +250,10 @@ int main()
 		cout << "min element: " << (task6(nomer6));
 		break;
 	case(7):
+		int k;
+		cout << "Put k: ";
+		cin>>k;
+		task7(nomer7,k);
 		break;
 	case(8):
 		if (task8(nomer8_1, nomer8_2))
