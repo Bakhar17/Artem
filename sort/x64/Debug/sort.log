@@ -1,0 +1,4 @@
+﻿  main.cpp
+E:\labs\Artem\sort\sort.h(134,19): warning C4267:  =: преобразование из "size_t" в "int"; возможна потеря данных
+E:\labs\Artem\sort\main.cpp(11,12): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  sort.vcxproj -> E:\labs\Artem\sort\x64\Debug\sort.exe

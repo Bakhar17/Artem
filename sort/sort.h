@@ -1,13 +1,13 @@
 #include <vector>
 using namespace std;
 
-void sort_vibor(vector<int>& a)
+void sort_vibor(vector<int>& a,const int  s)
 {
-	int kol = size(a);
-	for (int i = 0; i < kol - 1; i++)
+
+	for (int i = 0; i < s - 1; i++)
 	{
 		int pervi = i;
-		for (int next = i + 1; next < kol; next++)
+		for (int next = i + 1; next < s; next++)
 		{
 			if (a[next] < a[pervi])
 				pervi = next;
