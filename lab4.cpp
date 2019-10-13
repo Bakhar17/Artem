@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 template<class T>
@@ -213,6 +214,88 @@ void task7(vector<int>& a, int n)
 }
 
 
+void task3_summa(vector<int>& a, vector<int>& b)
+{
+	if (size(a) > size(b))
+	{
+		for (size_t i = 0; i < size(b); i++)
+		{
+			cout << a[i] + b[i] << "+";
+		}
+		for (size_t i = size(b); i < size(a)-1; i++)
+		{
+			cout << a[i] << "+";
+		}
+		cout << a[size(a) - 1];
+	}
+	if (size(b)>size(a))
+	{
+		for (size_t i = 0; i < size(a); i++)
+		{
+			cout << a[i] + b[i] << "+";
+		}
+		for (size_t i = size(a); i < size(b)-1; i++)
+		{
+			cout << b[i] << "+";
+		}
+		cout << b[size(b) - 1];
+
+	}
+	if (size(a)==size(b))
+		{
+			for (size_t i = 0; i < size(a)-1; i++)
+			{
+				cout << a[i] + b[i] << "+";
+			}
+			cout << a[size(a)-1] + b[size(b)-1];
+		}
+}
+
+void task5(vector<int>& a)
+{
+	int kol = size(a);
+	sort(a.begin(), a.end());
+		for (size_t i = 0; i < kol; i++)
+		{
+			cout << a[i] << "\t";
+		}
+		vector<int> temp;
+		for (size_t i = 1; i < kol; i++)
+		{
+			temp.push_back(a[i] - a[0]);
+		}
+		for (size_t i = 0; i < size(temp); i++)
+		{
+			cout << temp[i] << "\t";
+		}
+		cout << "\n";
+		int temps = size(temp);
+		int nod;
+		//решить вопрос с кол-вом!
+		for (int i = temp[temps-1]; i > 0; i--)
+		{
+			if (temp[temps - 1] % i == 0 && temp[temps - 2] % i == 0 && temp[temps - 3 ] % i==0 )
+			{
+				nod = i;
+				cout << "nod = " << nod;
+				break;
+			}
+		}
+		cout << "\n";
+		vector<int> result;
+		int i = 1;
+		while (i != a[kol - 1])
+		{
+			result.push_back(i);
+			i += nod;
+		}
+		result.push_back(i);
+		for (size_t i = 0; i < size(result); i++)
+		{
+			cout << result[i] << " ";
+		}
+}
+
 
 int main()
 {
@@ -230,6 +313,11 @@ int main()
 	vector<int> nomer8_2{56,468,21,5};
 	//задание 7:
 	vector<int> nomer7{ 15,48,6,5,78,21,35 };
+
+	vector<int> nomer3_1{ 1,5,7,6,4,8};
+	vector<int> nomer3_2{ 0,5,9,5,9 };
+
+	vector<int> nomer5{ 1,22,36,29 };
 	switch (n)
 	{
 	case(1):
@@ -243,8 +331,10 @@ int main()
 		task4(nomer4);
 		break;
 	case(3):
+		task3_summa(nomer3_1, nomer3_2);
 		break;
 	case(5):
+		task5(nomer5);
 		break;
 	case(6):
 		cout << "min element: " << (task6(nomer6));
