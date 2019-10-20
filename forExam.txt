@@ -1,0 +1,107 @@
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<vector>
+using namespace std;
+void del_str_const(ifstream & ,fstream &);
+void del_comment(fstream &,fstream &);
+
+int main()
+{
+	ifstream in("Text.txt");
+	fstream in_2("Text1.txt",ios::out);
+	fstream in_3("Text2.txt", ios::out);
+	ofstream out("Output.txt");
+
+	del_str_const( in,in_2);
+	in_2.open("Text1.txt", ios::in);
+	del_comment(in_2,in_3);
+	in_3.open("Text2.txt", ios::in);
+	vector<pair<int, int>> result;
+	int line_counter = 0;
+	int n;
+	string str;
+	while (!in_3.eof())
+	{
+		getline(in_3, str);
+		line_counter++;
+		istringstream line(str);
+		char c;
+		while (!line.eof())
+		{
+			string str2;
+			c = line.peek();
+			if (c >= '0' && c <= '9' || c == '-')
+			{
+				if (c == '-'||c=='0')
+				{
+					line.get();
+					if (line.peek() >= '1' && line.peek() <= '9')
+					{
+						line >> n;
+						line.get();
+						cout << "number " << n << '\n';
+						result.push_back(make_pair(line_counter, -n));
+					}
+				}
+				else
+				{
+					line >> n;
+					line.get();
+					result.push_back(make_pair(line_counter, n));
+				}
+			}
+			else
+			{
+				line >> str2;
+				line.get();
+			}
+		}
+	}
+	for (vector<pair<int, int>>::iterator i = result.begin();i<result.end();i++)
+	{
+		out << i->first << ' ' << i->second << '\n';
+	}
+	return 0;
+}
+void del_str_const(ifstream & in,fstream &in_2)
+{
+	int n;
+	string str;
+	while (!in.eof()) //удал€ет строковые константы и записывает результат в "Text1.txt"
+	{
+		getline(in, str);
+		int p1 = 0;
+		int p2 = 0;
+		while (true)
+		{
+			p1 = str.find('\"',p1);
+			p2 = str.find('\"', p1+2);
+			if (p1 == string::npos || p2 == string::npos)
+				break;
+			str.erase(p1, p2 - p1 + 1);
+		}
+		in_2 << str << '\n';
+	}
+	in_2.close();
+}
+
+void del_comment(fstream & in_2,fstream & in_3)
+{
+	string str;
+	while (!in_2.eof()) // удал€ет однострочные комментарии
+	{
+		getline(in_2, str);
+		int p1 = 0;
+		int p2 = 0;
+		while (true)
+		{
+			p1 = str.find("//");
+			if (p1 == string::npos)
+				break;
+			str.erase(str.begin() + p1, str.end());
+		}
+		in_3 << str << '\n';
+	}
+	in_3.close();
+}

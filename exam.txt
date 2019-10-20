@@ -1,0 +1,55 @@
+перевод  в двоичную
+
+int x;
+cin>>x;
+for (i=zizeof(x)-1; i>=0; --i)
+{
+ cout<<(int)((x>>i)&1);
+}
+
+
+удаление элемента
+
+void del_str_const(ifstream& in, fstream& in_2)
+{
+	int n;
+	string str;
+	while (!in.eof()) //удаляет строковые константы и записывает результат в "Text1.txt"
+	{
+		getline(in, str);
+		int p1 = 0;
+		int p2 = 0;
+		while (true)
+		{
+			p1 = str.find('\"', p1);
+			p2 = str.find('\"', p1 + 2);
+			if (p1 == string::npos || p2 == string::npos)
+				break;
+			str.erase(p1, p2 - p1 + 1);
+		}
+		in_2 << str << '\n';
+	}
+	in_2.close();
+}
+
+удаление комментарий 
+
+void del_comment(fstream& in_2, fstream& in_3)
+{
+	string str;
+	while (!in_2.eof()) // удаляет однострочные комментарии
+	{
+		getline(in_2, str);
+		int p1 = 0;
+		int p2 = 0;
+		while (true)
+		{
+			p1 = str.find("//");
+			if (p1 == string::npos)
+				break;
+			str.erase(str.begin() + p1, str.end());
+		}
+		in_3 << str << '\n';
+	}
+	in_3.close();
+}
