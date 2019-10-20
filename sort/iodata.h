@@ -9,8 +9,8 @@ void push_vector(vector<int>& a,const int s)
 	{
 		a.push_back(rand() % 100);
 	}
-	for (size_t i = 0; i < s; i++)
-	{
-		cout << a[i] << "\t";
-	}
+	//for (size_t i = 0; i < s; i++)
+	//{
+	//	cout << a[i] << "\t";
+	//}
 }
