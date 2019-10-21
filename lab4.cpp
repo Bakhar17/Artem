@@ -112,32 +112,28 @@ void task4(vector<T>& a)
 			cout << a[index] << ' ';
 		cout << "\n";
 }
-template<class T>
-int task6(vector<T> & a)
+
+int task6_min(vector<int> a,int i)
 {
-	int kol = size(a);
-	for (size_t i = 0; i < kol; i++)
-	{
-		int pervi = i;
-		for (size_t next = i+1; next < kol; next++)
+		int pervi;
+		pervi = i;
+		for (size_t k = pervi + 1; k < size(a); k++)
 		{
-			if (a[next] < a[pervi])
+			if (a[pervi] > a[k])
 			{
-				pervi = next;
+				pervi = k;
 			}
-			swap(a[i], a[pervi]);
 		}
-	}
-	return a[0];
+	return pervi;
 }
 template<class T>
 bool task8(vector<T>& a, vector<T>& b)
 {
 	int i = 1;
 	int k = 1;
-	for (; i < size(b) ; i++)
+	for (; i < size(b); i++)
 	{
-		for (; k < size(a) ; k++)
+		for (; k < size(a); k++)
 		{
 			if (b[i] == a[k] && b[i - 1] == a[k - 1])
 			{
@@ -150,10 +146,12 @@ bool task8(vector<T>& a, vector<T>& b)
 	{
 		return false;
 	}
-	if (i>=size(b))
-	{i -= 1; }
+	if (i >= size(b))
+	{
+		i -= 1;
+	}
 
-	for (; i >=0;i--)
+	for (; i >= 0; i--)
 	{
 		if (b[i] != a[k])
 		{
@@ -161,56 +159,6 @@ bool task8(vector<T>& a, vector<T>& b)
 		}
 		k--;
 	}
-}
-
-void task7(vector<int>& a, int n)
-{
-
-		int temp,i; 
-		for (int counter = 1; counter < size(a); counter++)
-		{
-			temp = a[counter]; // инициализируем временную переменную текущим значением элемента массива
-			i = counter - 1; // запоминаем индекс предыдущего элемента массива
-			while (i >= 0 && a[i] > temp) // пока индекс не равен 0 и предыдущий элемент массива больше текущего
-			{
-				a[i + 1] = a[i]; // перестановка элементов массива
-				a[i] = temp;
-				i--;
-			}
-		}
-		for (size_t i = 0; i < size(a); i++)
-		{
-			cout << a[i] << "\t";
-		}
-		int left = 0;
-		int mid;
-		int right = size(a);
-		while (right != left)
-		{
-			mid = (left + right) / 2;
-			if (n < a[mid])
-			{
-				right = mid - 1;
-			}
-			else
-			{
-				if (n > a[mid])
-					left = mid + 1;
-				else
-				{
-					mid= mid + 1;
-					break;
-				}
-			}
-		}
-		if (left != right)
-		{
-			cout <<"\n"<<"Requested position: "<< mid;
-		}
-		else
-		{
-			cout << "\n" <<"Requested position: "<< left;
-		}
 }
 
 
@@ -272,7 +220,7 @@ void task5(vector<int>& a)
 		int temps = size(temp);
 		int nod;
 		//решить вопрос с кол-вом!
-		for (int i = temp[temps-1]; i > 0; i--)
+		for (int i = temp[temps-1]/2; i > 0; i--)
 		{
 			if (temp[temps - 1] % i == 0 && temp[temps - 2] % i == 0 && temp[temps - 3 ] % i==0 )
 			{
@@ -295,7 +243,67 @@ void task5(vector<int>& a)
 			cout << result[i] << " ";
 		}
 }
+void task6_sort(vector<int>& a)
+{
+	for (size_t i = 0; i < size(a); i++)
+	{
+		swap(a[i], a[(task6_min(a,i))]);
+	}
+	for (size_t i = 0; i < size(a); i++)
+	{
+		cout << a[i] << "\t";
+	}
 
+}
+
+int task7_bin(vector<int>& v, int key, int index)
+{
+	int left = 0;
+	int right = index;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (key > v[mid])
+		{
+			left = mid + 1;
+		}
+		if (key < v[mid])
+		{
+			right = mid;
+		}
+		if (key == v[mid])
+		{
+			return mid;
+		}
+	}
+
+	if (key > v[right])
+	{
+		return right + 1;
+	}
+	else
+	{
+		return right;
+	}
+}
+
+void task7_binsort(vector<int>& a)
+{
+	if (a[0] > a[1])
+	{
+		swap(a[0], a[1]);
+	}
+	for (int j = 2; j < size(a); j++)
+	{
+		int tmp = a[j];
+		int ix = task7_bin(a, a[j], j - 1);
+		for (int i = j; i > ix; i--)
+		{
+			a[i] = a[i - 1];
+		}
+		a[ix] = tmp;
+	}
+}
 
 int main()
 {
@@ -337,13 +345,10 @@ int main()
 		task5(nomer5);
 		break;
 	case(6):
-		cout << "min element: " << (task6(nomer6));
+		task6_sort(nomer6);
 		break;
 	case(7):
-		int k;
-		cout << "Put k: ";
-		cin>>k;
-		task7(nomer7,k);
+		task7_binsort(nomer7);
 		break;
 	case(8):
 		if (task8(nomer8_1, nomer8_2))
