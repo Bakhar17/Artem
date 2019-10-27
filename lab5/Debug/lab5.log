@@ -1,0 +1,5 @@
+﻿  lab5.cpp
+E:\labs\lab5\lab5.cpp(89,10): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+E:\labs\lab5\lab5.cpp(98,10): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+E:\labs\lab5\lab5.cpp(85,9): warning C4101: lo: неиспользованная локальная переменная
+  lab5.vcxproj -> E:\labs\lab5\Debug\lab5.exe

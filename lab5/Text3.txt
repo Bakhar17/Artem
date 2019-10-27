@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <map>
+#include <vector>
+using namespace std;
+
+vector<pair<int, int>> Place(vector<pair<int, int>>& a)//task b(определяет позицию стобца и строки относительное центра)
+{
+	vector<pair<int, int>> result;
+	int s;//в какой вертикальной колонке
+	int k;//номер строки
+	for (vector<pair<int, int>>::iterator i = a.begin(); i != a.end(); i++)
+	{
+		if ((i->first) < (1920 / 3))
+		{
+			s = 1;
+		}
+		else
+			if ((i->first) >= (1920 / 3) && (i->first) <= (2 * 1920 / 3))
+			{
+				s = 2;
+			}
+			else
+			{
+				s = 3;
+			}
+	}
+}
