@@ -33,4 +33,9 @@
       <Filter>Исходные файлы</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\labSP4\func.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

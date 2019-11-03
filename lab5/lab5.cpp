@@ -3,6 +3,8 @@
 #include <sstream>
 #include <vector>
 #include <cmath>
+#include <map>
+#include "func.h"
 
 void task1()
 
@@ -82,10 +84,6 @@ void task4()
 	std::cout << "Put money";
 	std::cin >> chislo;
 	int rubles = int(chislo);
-	double lo;
-	//std::string set=std::to_string(chislo);
-	//int p=set.find(".");
-	//set = set[p+1] + set[p + 2];
 	int set = (chislo*100);
 	set %= 100;
 	std::string asd ;
@@ -142,6 +140,57 @@ void task4()
 
 
 }
+void task5() {
+	std::ifstream fin("Text2.txt", std::ios::in);
+	std::map<std::string, int> wordsdict;
+	std::string str;
+	std::fstream fout;
+	std::fstream fout1;
+	std::fstream f1;
+	if (fin.is_open())
+	{
+		fout.open("Output.txt", std::ios::out);
+		while (!fin.eof()) {
+			getline(fin, str);
+			funcmess(str);
+			fout << str << "\n";
+		}
+		fout.close();
+
+	}
+	check(fout, fout1, wordsdict);
+}
+void task6() {
+	setlocale(LC_ALL, "rus");
+	std::multimap<int, std::string> polig;
+	polig.emplace( 1, "один");
+	polig.emplace(1, "адзiн");
+	polig.emplace(1, "one");
+	polig.emplace(2, "два");
+	polig.emplace(2, "two");
+	polig.emplace(3, "три");
+	polig.emplace(3, "тры");
+	polig.emplace(3, "three");
+	polig.emplace(4, "четыре");
+	polig.emplace(4, "чатыры");
+	polig.emplace(4, "four");
+	int k;
+
+	//for (std::multimap<int,std::string>:: iterator i= polig.begin(); i !=polig.end(); i++)
+	//{
+	//	std::cout << i->first << " " << i->second << "\n";
+	//}	
+	std::cout << "Введите число ";
+	std::cin >> k;
+	std::multimap<int, std::string>::iterator i;
+	if (polig.lower_bound(k) == polig.end()) {
+		std::cout << "Такого элемента нет";
+	}
+	for ( i = polig.lower_bound(k); i != polig.upper_bound(k); i++)
+	{
+		std::cout << i->second << "\n";
+	}
+}
 
 int main()
 {
@@ -162,6 +211,13 @@ int main()
 	case(4):
 		task4();
 		break;
+	case(5):
+		task5();
+		break;
+	case(6):
+		task6();
+		break;
+
 	}
 
 }
