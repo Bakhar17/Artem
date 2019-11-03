@@ -120,9 +120,10 @@ int* subset(int*A, int*B,int a,int b) {
 		}
 		return (A+result-b+1);
 }
+
 bool check(int a) {
 	int result = 1;
-	for (int i = 2; i <=a/2 ; i++)
+	for (int i = 2; i <= a / 2; i++)
 	{
 		if (a % i == 0) {
 			result += 1;
@@ -134,6 +135,31 @@ bool check(int a) {
 	}
 	return true;
 }
+
+int* _array( int*a,int size) {
+	int n = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (check(a[i]))
+		{
+			n++;
+		}
+	}
+	int* B = new int[n];
+	int i = 0;
+	for (int k = 0; k < n; k++)
+	{
+		for (; i < size; i++) {
+			if (check(a[i])) {
+				B[k] = a[i];
+				i++;
+				break;
+			}
+		}
+	}
+	return B;
+}
+
 int main()
 {
 	//vector<int> test{ 5,48,6,8,3,154,48 };
@@ -147,49 +173,24 @@ int main()
 	int size,size2;
 	size = 5;
 	size2 = 3;
-	int* A = new int[size] {1, 53, 86, 32, 5};
-	int* B = new int[size2] {53, 86,32};
-	int* i=subset(A, B, size, size2);
-	cout << *i;
-	//for (int i = 0; i < size; i++)
-	//{
-	//	cout << A[i] << "\t";
-	//}
-	delete [] A;
-	delete [] B;
 
 
-	//A = new int[size];
-	//A[0] = 15;
-	//A[1] = 20;
-	//A[2] = 7;
-	//A[3] = 13;
-	//A[4] = 19;
-	//int n=0;
-	//for (int i=0; i < size; i++)
-	//{
-	//	if (check(A[i]))
-	//	{
-	//		n++;
-	//	}
-	//}
+	//int* A = new int[size] {1, 53, 86, 32, 5};
+	//int* B = new int[size2] {53, 86,32};
+	//int* i=subset(A, B, size, size2);
+	//cout << *i;
 
-	//B = new int[n]; 
-	//int i = 0;
-	//for (int k = 0; k < n; k++)
-	//{
-	//	for (; i < size; i++) {
-	//		if (check(A[i])) {
-	//			B[k] = A[i];
-	//			i++;
-	//			break;
-	//		}
-	//	}
-	//}
-	//for (int i = 0; i < n; i++)
-	//{
-	//	cout << B[i] << "\t";
-	//}
-	//delete[]A;
-	//delete[]B;
+	//delete [] A;
+	//delete [] B;
+
+
+	int*A = new int[size];
+	A[0] = 15;
+	A[1] = 20;
+	A[2] = 7;
+	A[3] = 13;
+	A[4] = 19;
+	int* B = _array(A, size);
+	delete[]A;
+	delete[]B;
 }
