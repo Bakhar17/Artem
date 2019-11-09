@@ -1,0 +1,4 @@
+﻿  main.cpp
+E:\labs\Artem\lab8\main.cpp(6,21): warning C4018: <: несоответствие типов со знаком и без знака
+E:\labs\Artem\lab8\main.cpp(14,21): warning C4018: <: несоответствие типов со знаком и без знака
+  lab8.vcxproj -> E:\labs\Artem\lab8\Debug\lab6.exe
