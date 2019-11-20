@@ -1,7 +1,9 @@
 ﻿  lab7.cpp
-E:\labs\Artem\lab7\lab7.cpp(72,20): warning C4018: <: несоответствие типов со знаком и без знака
-E:\labs\Artem\lab7\lab7.cpp(16): warning C4172: возвращение адреса локальной или временной переменной : i
-E:\labs\Artem\lab7\lab7.cpp(50): warning C4172: возвращение адреса локальной или временной переменной : result
-E:\labs\Artem\lab7\lab7.cpp(57): warning C4172: возвращение адреса локальной или временной переменной : result
-E:\labs\Artem\lab7\lab7.cpp(62): warning C4172: возвращение адреса локальной или временной переменной : result
+E:\labs\Artem\lab7\lab7.cpp(72,20): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\Artem\lab7\lab7.cpp(166,20): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\Artem\lab7\lab7.cpp(186,11): warning C4101:  size2: неиспользованная локальная переменная
+E:\labs\Artem\lab7\lab7.cpp(16): warning C4172:  возвращение адреса локальной или временной переменной : i
+E:\labs\Artem\lab7\lab7.cpp(50): warning C4172:  возвращение адреса локальной или временной переменной : result
+E:\labs\Artem\lab7\lab7.cpp(57): warning C4172:  возвращение адреса локальной или временной переменной : result
+E:\labs\Artem\lab7\lab7.cpp(62): warning C4172:  возвращение адреса локальной или временной переменной : result
   lab7.vcxproj -> E:\labs\Artem\lab7\Debug\lab7.exe

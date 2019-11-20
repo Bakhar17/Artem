@@ -136,15 +136,15 @@ bool check(int a) {
 	return true;
 }
 
-int* _array( int*a,int size) {
-	int n = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (check(a[i]))
-		{
-			n++;
-		}
-	}
+int* _array( int*a,int size,int n) {
+	//int n = 0;
+	//for (int i = 0; i < size; i++)
+	//{
+	//	if (check(a[i]))
+	//	{
+	//		n++;
+	//	}
+	//}
 	int* B = new int[n];
 	int i = 0;
 	for (int k = 0; k < n; k++)
@@ -157,7 +157,20 @@ int* _array( int*a,int size) {
 			}
 		}
 	}
+	delete[]a;
 	return B;
+}
+int NewSize(size_t size,int* a)
+{
+	int n = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (check(a[i]))
+		{
+			n++;
+		}
+	}
+	return n;
 }
 
 int main()
@@ -172,13 +185,19 @@ int main()
 
 	int size,size2;
 	size = 5;
-	size2 = 3;
+	//size2 = 3;
 
 
 	//int* A = new int[size] {1, 53, 86, 32, 5};
-	//int* B = new int[size2] {53, 86,32};
+	//int* B = new int[size2] {86, 53,32};
 	//int* i=subset(A, B, size, size2);
-	//cout << *i;
+	//if (i != nullptr) {
+	//	cout << *i;
+	//}
+	//else
+	//{
+	//	cout <<"B is not subset of A\n" ;
+	//}
 
 	//delete [] A;
 	//delete [] B;
@@ -190,7 +209,10 @@ int main()
 	A[2] = 7;
 	A[3] = 13;
 	A[4] = 19;
-	int* B = _array(A, size);
+	int n = NewSize(size, A);
+	A = _array(A,size, n);
+	for (int i = 0; i < n; i++) {
+		cout << A[i] << "\t";
+	}
 	delete[]A;
-	delete[]B;
 }

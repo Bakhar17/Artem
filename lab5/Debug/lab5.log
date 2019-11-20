@@ -1,4 +1,1 @@
-﻿  lab5.cpp
-E:\labs\lab5\lab5.cpp(87,10): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-E:\labs\lab5\lab5.cpp(96,10): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-  lab5.vcxproj -> E:\labs\lab5\Debug\lab5.exe
+﻿  lab5.vcxproj -> E:\labs\Artem\lab5\Debug\lab5.exe

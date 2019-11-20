@@ -132,7 +132,7 @@
     <Text Include="Text3.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\labSP4\func.h" />
+    <ClInclude Include="func.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

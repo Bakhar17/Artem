@@ -34,7 +34,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\labSP4\func.h">
+    <ClInclude Include="func.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
