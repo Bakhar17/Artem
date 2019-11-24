@@ -1,0 +1,58 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cctype>
+#include <stack>
+//только для целых чисел, без унарного минуса(плюса) и без скобок И только для правильных выражений Ctrl/z
+int main()
+{
+	std::string str;
+	while (std::cout << ">>> " && std::getline(std::cin, str))
+	{
+		std::istringstream iss(str);
+		std::stack<int> nums;
+		std::stack<char> ops;
+		char c;
+		int tmp;
+
+		while (iss >> c)
+		{
+			if (std::isdigit(c))
+			{
+				iss.putback(c);
+				iss >> tmp;
+				nums.push(tmp);
+			}
+			else
+			{
+				if (ops.empty() || (ops.top() != '*' && ops.top() != '/'))
+				{
+					ops.push(c);
+					continue;
+				}
+
+				tmp = nums.top(), nums.pop();
+				if (ops.top() == '*')
+					nums.top() *= tmp;
+				else
+					nums.top() /= tmp;
+				ops.pop(), ops.push(c);
+			}
+		}
+
+		while (!ops.empty())
+		{
+			tmp = nums.top(), nums.pop();
+			switch (ops.top())
+			{
+			case '+': nums.top() += tmp; break;
+			case '-': nums.top() -= tmp; break;
+			case '*': nums.top() *= tmp; break;
+			case '/': nums.top() /= tmp; break;
+			}
+			ops.pop();
+		}
+
+		std::cout << nums.top() << std::endl;
+	}
+}
