@@ -1,0 +1,63 @@
+struct queue {
+  int qu[QMAX];
+  int rear, frnt;
+};
+Инициализация очереди
+void init(struct queue *q) {
+  q->frnt = 1;
+  q->rear = 0;
+  return;
+}
+Добавление элемента в очередь
+void insert(struct queue *q, int x) {
+  if(q->rear < QMAX-1) {
+    q->rear++;
+    q->qu[q->rear]=x;
+  }
+  else
+    printf(«Очередь полна!\n»);
+  return;
+}
+Проверка пустоты очереди
+int isempty(struct queue *q) {
+  if(q->rear < q->frnt)    return(1);
+  else  return(0);
+}
+Вывод элементов очереди
+void print(struct queue *q) {
+  int h;
+  if(isempty(q)==1) {
+    printf(«Очередь пуста!\n»);
+    return;
+  }
+  for(h = q->frnt; h<= q->rear; h++)
+    printf(«%d «,q->qu[h]);
+  return;
+}
+Удаление элемента из очереди
+int remove(struct queue *q) {
+  int x;
+  if(isempty(q)==1) {
+    printf(«Очередь пуста!\n»);
+    return(0);
+  }
+  x = q->qu[q->frnt];
+  q->frnt++;
+  return(x);
+}
+Недостатком в предложенной реализации очереди является то, что очередь смещается в сторону старших адресов массива, что может вызвать скорое переполнение.
+Для устранения этого недостатка предложена другая реализация функции удаления элемента из очереди:
+
+int removex(struct queue *q) {
+  int x, h;
+  if(isempty(q)==1) {
+    printf(«Очередь пуста!\n»);
+    return(0);
+  }
+  x = q->qu[q->frnt];
+  for(h = q->frnt; h < q->rear; h++) {
+    q->qu[h] = q->qu[h+1];
+  }
+  q->rear—;
+  return(x);
+}
