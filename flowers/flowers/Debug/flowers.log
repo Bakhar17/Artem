@@ -1,0 +1,3 @@
+﻿  flowers.cpp
+E:\labs\Artem\flowers\flowers\flowers.cpp(19): warning C4715: get_ptr: значение возвращается не при всех путях выполнения
+  flowers.vcxproj -> E:\labs\Artem\flowers\Debug\flowers.exe

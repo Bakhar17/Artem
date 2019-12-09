@@ -1,19 +1,55 @@
 #include <iostream>
 #include "class.cpp"
 int main() {
-	Array b{ 8 };
-	for (size_t i = 0; i < b.GetSize(); i++)
+	//Array b{ 8 };
+	//std::cout << b.data << "\n";
+	//for (size_t i = 0; i < b.GetSize(); i++)
+	//{
+	//	b[i] = i + 1;
+	//}
+	//for (size_t i = 0; i < b.GetSize(); i++)
+	//{
+	//	std::cout << b[i] << "\t";
+	//}
+	//b.SetSize(10);
+	//std::cout <<"\n"<< b.data<<"\n";
+	//for (size_t i = 0; i < b.GetSize(); i++)
+	//{
+	//	std::cout << b[i] << "\t";
+	//}
+	//std::cout << "\n" << b.GetSize()<<"\n";
+	//b.SetAt(7,6);
+	//for (size_t i = 0; i < b.GetSize(); i++)
+	//{
+	//	std::cout << b[i] << "\t";
+	//}
+	//std::cout << "\n"<<b.GetSize()<<"\n";
+	//std::cout << b.GetUpperBound()<<"\n";
+	////b.RemoveAt(25);
+	//b.FreeExtra();
+	//for (size_t i = 0; i < b.GetSize(); i++)
+	//{
+	//	std::cout << b[i] << "\t";
+	//}
+	Array q1(5);
+	for (size_t i = 0; i < 5; i++)
 	{
-		b[i] = i + 1;
+		q1[i] = rand() % 10;
+		std::cout << q1[i] << "\t";
 	}
-	for (size_t i = 0; i < b.GetSize(); i++)
+	Array q2(7);
+	std::cout << "\n";
+	for (size_t i = 0; i < 7; i++)
 	{
-		std::cout << b[i] << "\t";
+		q2[i] = i + 12;
+		std::cout << q2[i] << "\t";
 	}
-	std::cout<<"\n"<<b.IsEmpty();
-	b.SetSize(9);
-	std::cout << "\n" << b.GetSize()<<"\n";
-	b.At(12, 15);
-	std::cout<<b[7];
-	b.RemoveAll();
+	Array sum = q1.Append(q2);
+	std::cout << "\n";
+	for (size_t i = 0; i < sum.GetSize(); i++)
+	{
+		std::cout << sum[i] << "\t";
+	}
+	q1.RemoveAll(); q2.RemoveAll();  sum.RemoveAll();
+	//b.RemoveAll();
 }

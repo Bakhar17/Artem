@@ -1,1 +1,6 @@
-﻿  LabArr.vcxproj -> E:\labs\Artem\LabArr\Debug\LabArr.exe
+﻿  Main.cpp
+E:\labs\Artem\LabArr\class.cpp(7,20): warning C4018: <: несоответствие типов со знаком и без знака
+E:\labs\Artem\LabArr\class.cpp(30,21): warning C4018: <: несоответствие типов со знаком и без знака
+E:\labs\Artem\LabArr\class.cpp(70,24): warning C4018: <: несоответствие типов со знаком и без знака
+E:\labs\Artem\LabArr\class.cpp(96,10): warning C4018: <: несоответствие типов со знаком и без знака
+  LabArr.vcxproj -> E:\labs\Artem\LabArr\Debug\LabArr.exe
