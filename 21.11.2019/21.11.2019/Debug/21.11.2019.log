@@ -1,5 +1,6 @@
-﻿  21112019.cpp
-E:\labs\Artem\21.11.2019\21.11.2019\Header.h(121,11): warning C4018: <: несоответствие типов со знаком и без знака
-E:\labs\Artem\21.11.2019\21.11.2019\Header.h(143,13): warning C4018: <: несоответствие типов со знаком и без знака
-E:\labs\Artem\21.11.2019\21.11.2019\Header.h(16): warning C4715: stack::prior: значение возвращается не при всех путях выполнения
-  21.11.2019.vcxproj -> E:\labs\Artem\21.11.2019\Debug\21.11.2019.exe
+﻿E:\visual\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (21.11.2019.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  21112019.cpp
+E:\labs\Artem\21.11.2019\21.11.2019\Header.h(121,11): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\Artem\21.11.2019\21.11.2019\Header.h(143,13): warning C4018:  <: несоответствие типов со знаком и без знака
+E:\labs\Artem\21.11.2019\21.11.2019\Header.h(16): warning C4715:  stack::prior: значение возвращается не при всех путях выполнения
+  21.11.2019.vcxproj -> E:\labs\Artem\21.11.2019\Debug\21.11.2019(Calc).exe
