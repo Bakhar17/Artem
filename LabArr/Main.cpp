@@ -1,5 +1,6 @@
 #include <iostream>
 #include "class.cpp"
+#include "Stack.h"
 int main() {
 	//Array b{ 8 };
 	//std::cout << b.data << "\n";
@@ -31,25 +32,33 @@ int main() {
 	//{
 	//	std::cout << b[i] << "\t";
 	//}
-	Array q1(5);
-	for (size_t i = 0; i < 5; i++)
-	{
-		q1[i] = rand() % 10;
-		std::cout << q1[i] << "\t";
-	}
-	Array q2(7);
-	std::cout << "\n";
-	for (size_t i = 0; i < 7; i++)
-	{
-		q2[i] = i + 12;
-		std::cout << q2[i] << "\t";
-	}
-	Array sum = q1.Append(q2);
-	std::cout << "\n";
-	for (size_t i = 0; i < sum.GetSize(); i++)
-	{
-		std::cout << sum[i] << "\t";
-	}
-	q1.RemoveAll(); q2.RemoveAll();  sum.RemoveAll();
+	//Array q1(5);
+	//for (size_t i = 0; i < 5; i++)
+	//{
+	//	q1[i] = rand() % 10;
+	//	std::cout << q1[i] << "\t";
+	//}
+	//Array q2(7);
+	//std::cout << "\n";
+	//for (size_t i = 0; i < 7; i++)
+	//{
+	//	q2[i] = i + 12;
+	//	std::cout << q2[i] << "\t";
+	//}
+	//Array sum = q1.Append(q2);
+	//std::cout << "\n";
+	//for (size_t i = 0; i < sum.GetSize(); i++)
+	//{
+	//	std::cout << sum[i] << "\t";
+	//}
+	//q1.RemoveAll(); q2.RemoveAll();  sum.RemoveAll();
 	//b.RemoveAll();
+	Stack b(5);
+	b.push(5);
+	b.push(3);
+	std::cout<< b.empty();
+	std::cout << b.peek();
+	std::cout << b.pop();
+	std::cout << b.peek();
+
 }

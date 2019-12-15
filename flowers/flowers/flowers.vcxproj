@@ -157,6 +157,9 @@
     <ClInclude Include="Flowers_class.h" />
     <ClInclude Include="Flowers_nasl.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Roses.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

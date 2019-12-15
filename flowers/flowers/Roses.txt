@@ -1,4 +1,4 @@
 P peon violet 12 6 1
 T tulip yellow 2 9 0
 R rose_neth red 3 4 0
-T tulip rose 4 7 1
+T tulip purple 4 7 1

@@ -53,3 +53,11 @@ void del_comment(fstream& in_2, fstream& in_3)
 	}
 	in_3.close();
 }
+	//fstream fin("Text.txt", ios_base::in);
+	//string str;
+	//vector<string> stroki;
+	//while (!fin.eof()) {
+	//	getline(fin, str);
+	//	stroki.push_back(str);
+	//}
+	//Er("asd", stroki);

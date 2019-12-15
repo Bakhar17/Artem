@@ -18,6 +18,9 @@ public:
 	int GetDays()const { return days; }
 	double GetPrice()const { return price; }
 	void set_name(const string& new_name) { name = new_name; }
+	bool operator<(const Flower* & a) const {
+		return this->price < a->price;
+	}
 private:
 	string name;
 	string colour;

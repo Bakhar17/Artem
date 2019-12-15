@@ -21,7 +21,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\class.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Stack.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

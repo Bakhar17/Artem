@@ -53,6 +53,7 @@ int main()
 		Happy(flower_ptr);
 		break;
 	case('s'):
+		Sad(flower_ptr);
 		break;
 	}
 	system("pause");
@@ -68,7 +69,7 @@ void Happy(vector<Flower*>& bouquet) {
 	double total_price=0;
 	vector<Flower*> result;
 	for_each(bouquet.begin(), bouquet.end(), [&total_price, &bouquet, &max_price, &number, &result](Flower* first) {
-		while (max_price > 0 &&max_price>= first->GetPrice()) {
+		while (max_price >= 0 &&max_price>= first->GetPrice()) {
 			result.push_back(first);
 			max_price -= first->GetPrice();
 			number++;
@@ -79,15 +80,67 @@ void Happy(vector<Flower*>& bouquet) {
 		cout << "Pay more money ;)";
 		return;
 	}
-	if (number % 2 == 0) {
-		total_price -= result[number-1]->GetPrice();
-		max_price += result[number - 1]->GetPrice();
+	while (number % 2 == 0) {
+		double pr = result[size(result) - 1]->GetPrice();
 		result.erase(--result.end());
 		number--;
+		max_price += pr;
+		total_price -= pr;
+		for_each(bouquet.begin(), bouquet.end(), [&total_price, &bouquet, &max_price, &number, &result, &pr](Flower* first) {
+			if (pr > first->GetPrice())
+				while (max_price >= 0 && max_price >= first->GetPrice()) {
+					result.push_back(first);
+					max_price -= first->GetPrice();
+					number++;
+					total_price += first->GetPrice();
+				}
+			});
 	}
 	for (size_t i = 0; i < size(result); i++)
 	{
 		result[i]->Print();
 	}
 	cout <<"|numberof: "<< number << "  |total_price: " << total_price;
+}
+
+void Sad(vector<Flower*>& bouquet) {
+	int number = 0;
+	double max_price;
+	cout << "What max price: ";
+	cin >> max_price;
+	double total_price = 0;
+	vector<Flower*> result;
+	for_each(bouquet.begin(), bouquet.end(), [&total_price, &bouquet, &max_price, &number, &result](Flower* first) {
+		while (max_price >= 0 && max_price >= first->GetPrice()) {
+			result.push_back(first);
+			max_price -= first->GetPrice();
+			number++;
+			total_price += first->GetPrice();
+		}
+		});
+	if (number == 0) {
+		cout << "Pay more money ;)";
+		return;
+	}
+	while (number % 2 == 1) {
+		double pr = result[size(result) - 1]->GetPrice();
+		result.erase(--result.end());
+		number--;
+		max_price += pr;
+		total_price -= pr;
+		for_each(bouquet.begin(), bouquet.end(), [&total_price, &bouquet, &max_price, &number, &result, &pr](Flower* first) {
+			if (pr > first->GetPrice())
+				while (max_price >= 0 && max_price >= first->GetPrice()) {
+					result.push_back(first);
+					max_price -= first->GetPrice();
+					number++;
+					total_price += first->GetPrice();
+				}
+			});
+	}
+	for (size_t i = 0; i < size(result); i++)
+	{
+		result[i]->Print();
+	}
+	cout << "|numberof: " << number << "  |total_price: " << total_price;
 }
