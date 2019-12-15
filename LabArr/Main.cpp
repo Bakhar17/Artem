@@ -1,6 +1,8 @@
 #include <iostream>
 #include "class.cpp"
 #include "Stack.h"
+#include "Queue.h"
+
 int main() {
 	//Array b{ 8 };
 	//std::cout << b.data << "\n";
