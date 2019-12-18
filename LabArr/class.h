@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 class Array
 {	
 
@@ -11,8 +12,10 @@ public:
 	int& operator[](size_t index);
 	const int& operator[](size_t index) const;
 	void SetAt(size_t index, int value);
-	void RemoveAll();
-	//~Array();???
+	
+	~Array() {
+		 RemoveAll();
+	}
 	class ErrorIndex
 	{
 	public:
@@ -32,6 +35,6 @@ public:
 	const Array Append(const Array& oper2) const;
 
 private:
-
+	void RemoveAll();
 	size_t size;
 };

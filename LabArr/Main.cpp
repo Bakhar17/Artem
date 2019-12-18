@@ -55,12 +55,4 @@ int main() {
 	//}
 	//q1.RemoveAll(); q2.RemoveAll();  sum.RemoveAll();
 	//b.RemoveAll();
-	Stack b(5);
-	b.push(5);
-	b.push(3);
-	std::cout<< b.empty();
-	std::cout << b.peek();
-	std::cout << b.pop();
-	std::cout << b.peek();
-
 }
