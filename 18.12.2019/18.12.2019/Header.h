@@ -40,6 +40,9 @@ public:
 	void Copy(vector<string>&, deque<string>&);
 	void Copy(deque<string>&, vector<string>&);
 	void Copy(deque<string>&, list<string>&);
+	void Sort(vector<string>&);
+	void Sort(deque<string>&);
+	void Sort(list<string>&);
 private:
 	list<string> slist;
 	deque<string> dlist;
@@ -54,14 +57,33 @@ Program::~Program()
 {
 }
 void Program::Copy(list <string>& list, deque<string>&deque) {
-	copy(list.begin(), list.end(), deque);
+	copy(list.begin(), list.end(), deque.begin());
 }
 void Program::Copy(vector <string>& list, deque<string>& deque) {
-	copy(list.begin(), list.end(), deque);
+	copy(list.begin(), list.end(), deque.begin());
 }
 void Program::Copy(deque <string>& list, vector<string>& deque) {
 	copy(list.begin(), list.end(), back_inserter(deque));
 }
-void Program::Copy(deque<string>& list, list<string> & deque) {
-	copy(list.begin(), list.end(), deque.begin());
+void Program::Copy(deque<string>& lis, list<string> & deque) {
+	copy(lis.begin(), lis.end(), deque.begin());
+}
+bool comp(string left, string right) {
+	int s = size(left) > size(right)?  size(left): size(right);
+	for (size_t i = 0; i < s; i++)
+	{
+		if (left[i] > right[i]) {
+			return 1;
+		}
+	}
+	return 0;
+}
+void Program::Sort(vector<string>& vect) {
+	sort(vect.begin(), vect.end(), comp);
+}
+void Program::Sort(list<string>& list) {
+	sort(list.begin(), list.end(), comp);
+}
+void Program::Sort(deque<string>& deque) {
+	sort(deque.begin(), deque.end(), comp);
 }
