@@ -1,24 +1,2 @@
 ﻿  main.cpp
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:  бинарный "=": не найден оператор, принимающий правый операнд типа "Train" (или приемлемое преобразование отсутствует)
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(232,1): message :  может быть "std::ostream_iterator<std::string,char,std::char_traits<char>> &std::ostream_iterator<std::string,char,std::char_traits<char>>::operator =(std::ostream_iterator<std::string,char,std::char_traits<char>> &&)"
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(232,1): message :  или       "std::ostream_iterator<std::string,char,std::char_traits<char>> &std::ostream_iterator<std::string,char,std::char_traits<char>>::operator =(const std::ostream_iterator<std::string,char,std::char_traits<char>> &)"
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :  или       "std::ostream_iterator<std::string,char,std::char_traits<char>> &std::ostream_iterator<std::string,char,std::char_traits<char>>::operator =(const _Ty &)"
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         with
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         [
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :             _Ty=std::string
-E:\visual\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         ]
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :  при попытке сопоставить список аргументов "(std::ostream_iterator<std::string,char,std::char_traits<char>>, Train)"
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :  выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt std::_Copy_unchecked<Train*,_Iter>(_InIt,_InIt,_OutIt)"
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         with
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         [
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _OutIt=std::ostream_iterator<std::string,char,std::char_traits<char>>,
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _Iter=std::ostream_iterator<std::string,char,std::char_traits<char>>,
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _InIt=Train *
-E:\visual\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         ]
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :  выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt std::copy<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::ostream_iterator<std::string,char,std::char_traits<char>>>(_InIt,_InIt,_OutIt)"
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :         with
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :         [
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :             _OutIt=std::ostream_iterator<std::string,char,std::char_traits<char>>,
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :             _Ty=Train,
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :             _InIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Train>>>
-E:\labs\Artem\lab61\lab6_1\main.cpp(26): message :         ]
+  lab8.vcxproj -> E:\labs\Artem\lab61\lab6_1\Debug\lab6.exe

@@ -11,9 +11,15 @@ public:
 	Train(const Train&);
 	void WhereTo(std::string q);
 	friend std::istream& operator>>(std::istream&, Train&);
-	friend std::ostream& operator<<(std::ostream&,  Train&);
-	void WhereToE(std::string q);
+	friend std::ostream& operator<<(std::ostream&, const Train&);
 	const std::string GetPlace() const { return this->place; };
+	bool If_E();
+	//Train operator=(const Train tr) {
+	//	this->place = tr.place;
+	//	this->number = tr.number;
+	//	this->e = tr.e;
+	//	return *this;
+	//}
 
 private:
 	std::string place;
@@ -35,7 +41,7 @@ std::istream& operator>>(std::istream& in, Train& train)
 	in >> train.place >> train.number >> train.e;
 	return in;
 }
-std::ostream& operator<<(std::ostream& out, Train& train)
+std::ostream& operator<<(std::ostream& out, const Train& train)
 {
 	out << train.place <<" "<< train.number <<" "<< train.e << "\n";
 	return out;
@@ -53,10 +59,7 @@ void Train::WhereTo(std::string q)
 
 }
 
-void Train::WhereToE(std::string q)
+bool Train::If_E()
 {
-	if (this->place == q&&this->e!=0)
-	{
-		std::cout << *this;
-	}
+	return e != 0;
 }
