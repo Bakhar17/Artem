@@ -3,7 +3,8 @@
 #include <fstream>
 #include <string>
 TEST(TestPos, TestName) {
-	int pos = Pos();
- 	EXPECT_EQ(4, pos);
-  EXPECT_TRUE(true);
+	string line = "Pikachu Pikachu Pokemon Pikachu";
+	Er("Pikachu", line);
+	auto pos = line.find("Pikachu");
+  EXPECT_EQ(pos,string::npos);
 }

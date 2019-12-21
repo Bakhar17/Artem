@@ -2,14 +2,15 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <string>
 using namespace std;
-void Er(string word, vector<string>& lines) {
-	for (size_t i = 0; i < size(lines); i++)
-	{
-		auto pos = lines[i].find(word);
-		if (pos < lines[i].size() && pos >= 0)
-			lines[i].erase(pos, size(word)+1);
+void Er(const string word, string& stroka) {
+	size_t pos = stroka.find(word);
+	while (pos != string::npos) {
+		stroka.erase(pos,word.size() + 1);
+		pos = stroka.find(word);
 	}
+
 }
 
 void SortR(vector<string>& Stroki) {
@@ -22,10 +23,4 @@ void SortR(vector<string>& Stroki) {
 			);
 		}
 	);
-}
-int Sum(int x, int y) {
-	return x + y + 1;
-}
-int Pos() {
-	return 0;
 }
