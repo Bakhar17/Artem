@@ -9,15 +9,16 @@ public:
 	~Train();
 	Train(std::string place,int number, char e);
 	Train(const Train&);
-	friend void WhereTo(Train& wh, std::string q);
+	void WhereTo(std::string q);
 	friend std::istream& operator>>(std::istream&, Train&);
 	friend std::ostream& operator<<(std::ostream&,  Train&);
-	friend void WhereToE(Train& wh, std::string q);
+	void WhereToE(std::string q);
+	const std::string GetPlace() const { return this->place; };
 
 private:
 	std::string place;
 	int number;
-	char e;
+	bool e;
 };
 Train::Train() {
 
@@ -43,19 +44,19 @@ Train::~Train()
 {
 }
 
-void WhereTo(Train& wh,std::string q)
+void Train::WhereTo(std::string q)
 {
-	if (wh.place == q) 
+	if (this->place == q) 
 	{
-	std::cout<<wh;
+	std::cout<<*this;
 	}
 
 }
 
-void WhereToE(Train& wh, std::string q)
+void Train::WhereToE(std::string q)
 {
-	if (wh.place == q&& wh.e=='+')
+	if (this->place == q&&this->e!=0)
 	{
-		std::cout << wh;
+		std::cout << *this;
 	}
 }

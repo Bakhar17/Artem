@@ -73,6 +73,7 @@ int main()
 	if (ch) // выполняем проверку ch на нулевой указатель
 		std::cout << "The number of the stage is: " << ch->getNumber() <<"\t"<<ch->getName()<< '\n';
 	delete p;
+	
 	return 0;
 }
 
