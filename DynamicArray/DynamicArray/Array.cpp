@@ -33,7 +33,7 @@ Array& Array:: operator=(const Array& c)
 }
 Array::~Array()
 {
-	delete[]data;
+	RemoveAll();
 }
 int& Array::operator[](int index)
 {

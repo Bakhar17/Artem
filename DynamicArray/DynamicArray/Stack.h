@@ -10,8 +10,8 @@ private:
 public:
 	Stack();
 	explicit Stack(size_t _size);
-	const void popback();
-	const void pushback(T value);
+	const void Pop();
+	const void Push(T value);
 	const T head();
 	const bool IsEmpty();
 	const int stackelements();
@@ -29,20 +29,20 @@ template<class T>
 Stack<T>::Stack(size_t _size) : size(_size), data(new T[_size]), capacity(_size)
 {}
 template<class T>
-const void Stack<T>::popback() {
+const void Stack<T>::Pop() {
 	if (!IsEmpty()) {
 		size_t newsize = size - 1;
 		if (size == capacity * 4) {
 			newsize = size / 2;
 		}
-		T* tmp = new T[newsize];
+		T* temp = new T[newsize];
 		for (size_t i = 1; i < capacity - 1; i++) {
-			tmp[i] = data[i];
+			temp[i] = data[i];
 		}
 		delete[]data;
 		size = newsize;
 		capacity--;
-		data = tmp;
+		data = temp;
 	}
 	else {
 		delete[]data;
@@ -50,7 +50,7 @@ const void Stack<T>::popback() {
 	}
 }
 template<class T>
-const void Stack<T>::pushback(T value) {
+const void Stack<T>::Push(T value) {
 	if (this->size == 0) {
 		this->size = 2;
 		this->data = new T[2];
