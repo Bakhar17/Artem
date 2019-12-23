@@ -17,7 +17,7 @@ int main()
 	y = { "Kamenka",2,2 };
 	std::vector<Train> tr1 { b,c,k,w,e,g,s,h,y };
 	sort(tr1.begin(), tr1.end(), [&tr1](Train first, Train second) {return (first.GetPlace() > second.GetPlace()); });
-	copy(tr1.begin(), tr1.end(),std::ostream_iterator<Train>( cout));
+	copy(tr1.begin(), tr1.end(),std::ostream_iterator<Train>(cout));
 	cout << "\n";
 	copy_if(tr1.begin(), tr1.end(), std::ostream_iterator<Train>(cout), [&tr1](Train& a)->bool {return a.If_E(); });
 	

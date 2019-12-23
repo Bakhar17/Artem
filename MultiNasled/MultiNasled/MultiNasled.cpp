@@ -59,36 +59,36 @@ int main()
 
 	}
 	fin_flight.close();
-//	Add_Pilot(pilots);
-//	for (size_t i = 0; i < size(pilots); i++)
-//	{
-//		pilots[i]->Print();
-//	}
-//	Add_Flight(flights,pilots,planes);
-//
-//	for (size_t i = 0; i < size(flights); i++)
-//	{
-//		flights[i]->Print();
-//	}
-//	Add_Plane(planes);
-//	for (size_t i = 0; i < size(planes); i++)
-//{
-//	planes[i]->Print();
-//}
-	//Delete_Pilot(pilots);
-	//for (size_t i = 0; i < size(pilots); i++)
-	//{
-	//	pilots[i]->Print();
+	Add_Pilot(pilots);
+	for (size_t i = 0; i < size(pilots); i++)
+	{
+		pilots[i]->Print();
+	}
+	Add_Flight(flights,pilots,planes);
 
-	//}
-	//Delete_Plane(planes);
-	//Delete_Flight(flights);
-	//for (size_t i = 0; i < size(flights); i++)
-	//{
-	//	flights[i]->Print();
-	//}
-	//Find_Pilot(flights,pilots);
-	//Find_Plane(flights, planes);
+	for (size_t i = 0; i < size(flights); i++)
+	{
+		flights[i]->Print();
+	}
+	Add_Plane(planes);
+	for (size_t i = 0; i < size(planes); i++)
+{
+	planes[i]->Print();
+}
+	Delete_Pilot(pilots);
+	for (size_t i = 0; i < size(pilots); i++)
+	{
+		pilots[i]->Print();
+
+	}
+	Delete_Plane(planes);
+	Delete_Flight(flights);
+	for (size_t i = 0; i < size(flights); i++)
+	{
+		flights[i]->Print();
+	}
+	Find_Pilot(flights,pilots);
+	Find_Plane(flights, planes);
 	ChangeInfo(flights,pilots,planes);
 }
 

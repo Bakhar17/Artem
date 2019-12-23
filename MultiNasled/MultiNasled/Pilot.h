@@ -38,7 +38,7 @@ void Pilot::Read(std::istream& in) {
 }
 
 bool Pilot::Check() {
-	if (name != "" && experience != 0 && adress != "" && dateofbirth != "" && salary != 0) {
+	if (name != "" && !experience  && adress != "" && dateofbirth != "" && !salary ) {
 		return 1;
 	}
 	return 0;
