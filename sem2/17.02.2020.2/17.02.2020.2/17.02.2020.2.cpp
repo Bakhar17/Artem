@@ -1,5 +1,72 @@
 ﻿#include <iostream>
+bool Symmetry(int a) {
+		int ra;
+		__asm {
+			mov eax, a
+			mov ebx, 10
+			mov ecx, 0
+			contin:
+			cmp eax, 0
+				JG repeat
+				JE the_end
+				repeat :
+			cdq
+				div ebx
+				imul ecx, 10
+				add ecx, edx
+				jmp contin
+				the_end :
+			mov ra, ecx
 
+		}
+		return (ra == a);
+}
+int Summa(int a) {
+	__asm {
+		mov eax, a
+		mov ebx, 10
+		mov ecx, 0
+		contins:
+		cmp eax, 0
+		JG repeats
+		JE the_ends
+		repeats :
+		cdq
+		div ebx
+		add ecx, edx
+		jmp contins
+		the_ends :
+		mov a, ecx
+	}
+	return a;
+	
+}
+int EvenSumma(int a) {
+	__asm {
+		mov eax, a
+		mov ebx, 10
+		mov ecx, 0
+			contine:
+		cmp eax, 0
+		JG repeate
+		JE the_ende
+			repeate :
+		cdq
+		div ebx
+		jmp checke
+		jmp contine
+			checke:
+		test edx,1
+		jz go
+		jmp contine
+			go:
+		add ecx, edx
+		jmp contine
+			the_ende :
+		mov a, ecx
+	}
+	return a;
+}
 int main()
 {
 	int n;
@@ -72,7 +139,6 @@ int main()
 			je end1
 			test eax,1
 			jz notcount
-				count:
 			add ecx, 1
 			shr eax, 1
 			jmp start1
@@ -83,6 +149,71 @@ int main()
 			mov x,ecx
 		}
 		std::cout << x;
+		break;
+	}
+	case(2): {
+		std::cout << "Put the divisor: ";
+		int divisor;
+		std::cin >> divisor;
+		std::cout << "Put the denominator(>0): ";
+		int denominator;
+		std::cin >> denominator;
+		if (divisor == 0) {
+			std::cout << 0;
+			break;
+		}
+		if (denominator > 0&&divisor>0) {
+		__asm {
+
+				mov eax, divisor
+				mov ebx, denominator
+				beg2 :
+				cmp eax, ebx
+					je end2
+					jg greater2
+					sub ebx, eax
+					jmp beg2
+					greater2 :
+				sub eax, ebx
+					jmp beg2
+					end2:
+				mov ecx, eax
+				mov eax,divisor
+				cdq 
+				idiv ecx
+				mov divisor,eax
+				mov eax,denominator
+				cdq
+				div ecx
+				mov denominator,eax
+		}
+		std::cout << divisor << "/" << denominator;
+		break;
+		}
+		if (divisor < 0) {
+			__asm {
+				mov eax,divisor
+				mov ecx,-1
+				imul ecx
+				mov ebx,denominator
+				jmp beg2
+			}
+			std::cout << -divisor << "/" << denominator;
+		}
+   break;
+	}
+	case(1): {
+		int a;
+		std::cout << "Put the number: ";
+		std::cin >> a;
+		if (a < 0) {
+			std::cout << "Wrong data!";
+			break;
+		}
+		if (Symmetry(a)) std::cout << "Symmetry!\n";
+		else std::cout << "No symmetry\n";
+		std::cout << "Summa of digits: " << Summa(a)<<"\n";
+		std::cout << "Summa of even digits: " << EvenSumma(a);
 		break;
 	}
 	}
