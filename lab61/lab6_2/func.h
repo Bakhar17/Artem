@@ -23,7 +23,7 @@ private:
 };
 void Rational::reduce(int& a,int& b) {
 	if (b != 0) {
-		for (size_t i = 2; i <=a; i++)
+		for (int i = 2; i <=a; i++)
 		{
 			while (b%i==0&&a%i==0)
 			{
@@ -79,21 +79,17 @@ bool operator==(Rational& f, Rational& s) {
 	return false;
 }
 bool operator>(Rational& f, Rational& s) {
-	Rational c;
-	c = { (f.a * s.b - f.b * s.a),(f.b * s.b) };
-	double r = c.a / c.b;
-	if (c.a > 0) {
+	int c = f.a * s.b - f.b * s.a;
+	if (c > 0) {
 		return true;
 	}
-	else false;
+	return false;
 
 }
 bool operator<(Rational& f, Rational& s) {
-	Rational c;
-	c = { (f.a * s.b - f.b * s.a),(f.b * s.b) };
-	double r = c.a / c.b;
-	if (r < 0) {
+	int c =f.a*s.b-f.b*s.a ;
+	if (c < 0) {
 		return true;
 	}
-	else return false;
+	 return false;
 }
