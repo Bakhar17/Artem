@@ -17,6 +17,10 @@ void BiDirectionalList<T>::KillThemAll() {
 		}
 	}
 }
+template <class T>
+BiDirectionalList<T>::BiDirectionalList(std::initializer_list<T> l) {
+	std::for_each(l.begin(), l.end(), [&](const T obj) {this->PushBack(obj); });
+}
 
 
 template<class T>
@@ -207,4 +211,13 @@ std::vector<int> BiDirectionalList<T>::FindAll(const T& _value_) {
 		}
 	}
 	return res;
+}
+template <class T>
+std::vector<T> BiDirectionalList<T>::ToVector()const {
+	vector<T> temp;
+	for (size_t i = 0; i < this->size_; i++)
+	{
+		temp.push_back((*this)[i]->value);
+	}
+	return temp;
 }

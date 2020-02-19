@@ -13,6 +13,7 @@ int main()
 	test.PushBack(5);
 	test.PushFront(4);
 	test.PopBack();
+	BiDirectionalList<int> test2 { 2,5,6 };
 	cout << test.Back()->value;
 	cout << test.Size();
 	cout << test<<"\n";//перегружено для проверки правиьно введенного содержимого
@@ -22,6 +23,11 @@ int main()
 	{
 		cout << res[i] << " ";
 	}
+	std::cout << "\n" << test2;
+	test = test2;
+	test = test;
+	cout << "\n" << test;
+	cout << "\n" << (test==test2);
 	}
 	return 0;
 }

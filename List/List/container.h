@@ -5,6 +5,8 @@
 #include <iterator>
 #include <cassert>
 #include <vector>
+#include <cassert>
+#include <initializer_list>
 using namespace std;
 
 template<class T>
@@ -18,7 +20,9 @@ public:
 	Node(const T& _value, Node* _n = nullptr, Node* _p = nullptr) :
 		value(_value), next(_n), prev(_p) {}
 };
-	BiDirectionalList()=default ;
+	explicit BiDirectionalList() {}
+	BiDirectionalList(std::initializer_list<T> l);
+	
 	BiDirectionalList(const BiDirectionalList&)=default;
 	~BiDirectionalList();
 
@@ -48,7 +52,26 @@ public:
 	const Node* operator[](size_t pos)const;
 	template<class T>
 	friend std::ostream& operator<<(std::ostream&, const BiDirectionalList<T>&);
-
+	bool operator==(const BiDirectionalList<T>& right) {
+		std::vector<T> lvector;
+		lvector = this->ToVector();
+		std::vector<T> rvector = right.ToVector();
+		return (lvector == rvector);
+	}
+	bool operator==(BiDirectionalList<T>& right) {
+		std::vector<T> lvector;
+		lvector = this->ToVector();
+		std::vector<T> rvector = right.ToVector();
+		return (lvector == rvector);
+	}
+	BiDirectionalList<T>& operator=(const BiDirectionalList<T>& klass) {
+		if (this != &klass) {
+			std::vector<T> lvector(klass.ToVector());
+			this->KillThemAll();
+			std::for_each(lvector.begin(), lvector.end(), [&](const T obj) {this->PushBack(obj); });
+		}
+		return *this;
+	}
 	template<class T>
 	class Iterator {
 	public:
@@ -71,6 +94,7 @@ public:
 	Iterator<T> cbegin()const { return Iterator<T>(head_); };
 	Iterator<T> cend()const { return Iterator<T>(nullptr); };
 	vector<T> ToVector();
+	vector<T> ToVector()const;
 	vector<int> FindAll(const T&);
 
 private:
@@ -80,4 +104,3 @@ private:
 	void KillThemAll(); // Free memory of all nodes.
 };
 #endif // !CONTAINER_H_
-
