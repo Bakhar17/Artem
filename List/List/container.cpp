@@ -3,8 +3,6 @@ template<class T>
 BiDirectionalList<T>::~BiDirectionalList() {
 	KillThemAll();
 }
-
-
 template<class T>
 void BiDirectionalList<T>::KillThemAll() {
 	if (!this->IsEmpty()) {
@@ -21,8 +19,6 @@ template <class T>
 BiDirectionalList<T>::BiDirectionalList(std::initializer_list<T> l) {
 	std::for_each(l.begin(), l.end(), [&](const T obj) {this->PushBack(obj); });
 }
-
-
 template<class T>
 void BiDirectionalList<T>::PushBack(const T& elem)
 {
@@ -71,7 +67,7 @@ template<class T>
 std::ostream& operator<<(std::ostream& out, const BiDirectionalList<T>& list) {
 	for (size_t i = 0; i < list.Size(); i++)
 	{
-		out << list[i]->value << "\n";
+		out << list[i] << "\n";
 	}
 	return out;
 }
@@ -89,7 +85,7 @@ void BiDirectionalList<T>::PushFront(const T& elem)
 	size_++;
 }
 template<class T>
-typename BiDirectionalList<T>::Node* BiDirectionalList<T>::operator[](size_t pos) {
+T& BiDirectionalList<T>::operator[](size_t pos) {
 	if (pos >= size_) {
 		cout << "Wrong Pos!\n";
 		abort();
@@ -100,10 +96,10 @@ typename BiDirectionalList<T>::Node* BiDirectionalList<T>::operator[](size_t pos
 		++i;
 		pos_++;
 	}
-	return i.cur_;
+	return i.cur_->value;
 }
 template<class T>
-typename const BiDirectionalList<T>::Node* BiDirectionalList<T>::operator[](size_t pos)const {
+const T& BiDirectionalList<T>::operator[](size_t pos)const {
 	if (pos >= size_) {
 		cout << "Wrong Pos!\n";
 		abort();
@@ -114,7 +110,7 @@ typename const BiDirectionalList<T>::Node* BiDirectionalList<T>::operator[](size
 		++i;
 		pos_++;
 	}
-	return i.cur_;
+	return i.cur_->value;
 }
 template<class T>
 int BiDirectionalList<T>::Find(const T& obj)const {
@@ -206,7 +202,7 @@ std::vector<int> BiDirectionalList<T>::FindAll(const T& _value_) {
 	vector<int> res;
 	for (size_t i = 0; i < this->size_; i++)
 	{
-		if (_value_ == (*this)[i]->value) {
+		if (_value_ == (*this)[i]) {
 			res.push_back(i);
 		}
 	}
@@ -217,7 +213,7 @@ std::vector<T> BiDirectionalList<T>::ToVector()const {
 	vector<T> temp;
 	for (size_t i = 0; i < this->size_; i++)
 	{
-		temp.push_back((*this)[i]->value);
+		temp.push_back((*this)[i]);
 	}
 	return temp;
 }

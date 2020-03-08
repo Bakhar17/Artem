@@ -23,7 +23,7 @@ public:
 	explicit BiDirectionalList() {}
 	BiDirectionalList(std::initializer_list<T> l);
 	
-	BiDirectionalList(const BiDirectionalList&)=default;
+	BiDirectionalList(const BiDirectionalList&)=default;// переделать!
 	~BiDirectionalList();
 
 	bool IsEmpty() { return !size_; };
@@ -48,22 +48,23 @@ public:
 	const Node* Back()const {
 		return  tail_;
 	}
-	Node* operator[](size_t pos);
-	const Node* operator[](size_t pos)const;
+	T& operator[](size_t pos);
+	const T& operator[](size_t pos)const;
 	template<class T>
 	friend std::ostream& operator<<(std::ostream&, const BiDirectionalList<T>&);
-	bool operator==(const BiDirectionalList<T>& right) {
+	bool operator==(const BiDirectionalList<T>& right)const {
 		std::vector<T> lvector;
 		lvector = this->ToVector();
 		std::vector<T> rvector = right.ToVector();
 		return (lvector == rvector);
+	}	
+	bool operator!=(const BiDirectionalList<T>& right)const {
+	std::vector<T> lvector;
+	lvector = this->ToVector();
+	std::vector<T> rvector = right.ToVector();
+	return (lvector != rvector);
 	}
-	bool operator==(BiDirectionalList<T>& right) {
-		std::vector<T> lvector;
-		lvector = this->ToVector();
-		std::vector<T> rvector = right.ToVector();
-		return (lvector == rvector);
-	}
+
 	BiDirectionalList<T>& operator=(const BiDirectionalList<T>& klass) {
 		if (this != &klass) {
 			std::vector<T> lvector(klass.ToVector());

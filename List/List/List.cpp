@@ -16,7 +16,7 @@ int main()
 	BiDirectionalList<int> test2 { 2,5,6 };
 	cout << test.Back()->value;
 	cout << test.Size();
-	cout << test<<"\n";//перегружено для проверки правиьно введенного содержимого
+	cout << test<<"\n";//перегружено для проверки правильно введенного содержимого
 	vector<int> res;
 	res = test.FindAll(5);
 	for (size_t i = 0; i < size(res); i++)
@@ -28,6 +28,8 @@ int main()
 	test = test;
 	cout << "\n" << test;
 	cout << "\n" << (test==test2);
+	cout << test.Front()->value;
+	cout << test[1];
 	}
 	return 0;
 }
