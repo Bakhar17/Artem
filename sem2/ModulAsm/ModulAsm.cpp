@@ -1,20 +1,48 @@
-﻿// ModulAsm.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
-
+﻿#include <iostream>
+extern "C" void _stdcall Swipe(int (*arr)[5][5], int size_,int k);
+extern "C" int _stdcall CheckPos(int* arr, int size_, int* sarr, int ssize_);
+extern "C" void _stdcall Erase(int* arr, int* size_, int ssize_, int pos);
 int main()
 {
-    std::cout << "Hello World!\n";
+    int arr[5][5];
+	int sr = 1;
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			arr[i][j] = sr;
+			sr++;
+		}
+	}
+	Swipe(&arr, 25, 3);
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "\n";
+		for (int j = 0; j < 5; j++)
+		{
+			std::cout << arr[i][j] << "\t";
+		}
+	}
+	int size_=15;
+	int ssize_ = 9;
+	int* dyn_arr = new int[15];
+	for (int i = 0; i < 15; i++)
+	{
+		dyn_arr[i] = i + 1;
+	}
+	int* sdyn_arr = new int[9];
+	for (int i = 0; i < 9; i++)
+	{
+		sdyn_arr[i] = i + 3;
+	}
+	int pos = CheckPos(dyn_arr, 15, sdyn_arr, 9);
+
+	std::cout << "\n" << pos << "\n";
+	Erase(dyn_arr, &size_, ssize_, pos);
+	for (int i = 0; i < size_; i++)
+	{
+		std::cout << dyn_arr[i] << "\t";
+	}
+	delete[] dyn_arr;
+	delete[] sdyn_arr;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
