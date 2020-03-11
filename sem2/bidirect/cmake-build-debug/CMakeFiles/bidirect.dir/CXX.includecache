@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/labs/Artem/sem2/bidirect/Queue.h
+container.h
+E:/labs/Artem/sem2/bidirect/container.h
+
+E:/labs/Artem/sem2/bidirect/container.h
+algorithm
+-
+vector
+-
+cassert
+-
+iostream
+-
+
+E:/labs/Artem/sem2/bidirect/main.cpp
+iostream
+-
+container.h
+E:/labs/Artem/sem2/bidirect/container.h
+Queue.h
+E:/labs/Artem/sem2/bidirect/Queue.h
+

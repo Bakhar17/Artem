@@ -1,6 +1,7 @@
-﻿#include <iostream>
+#include <iostream>
 #include "container.h"
-#include "Queue.h"
+#include "
+Queue.h"
 
 
 BiDirectionalList<int> CheckMove(int a, int b) {
@@ -26,19 +27,19 @@ int main()
     {
         std::cout << Test[i] << "\t";
     }
-   
+
     Test.Erase(Test.Back());
     std::cout << "\n";
     for (int i = 0; i < Test.Size(); i++)
     {
         std::cout << Test[i] << "\t";
     }
-    
+
     BiDirectionalList<int> Test2 = { 15,48,65,20,0 };
     BiDirectionalList<int> Test3(Test);
     std::cout << "\n" << "Test != Test2: " << (Test == Test2) << "\tTest!=Test3: " << (Test != Test3) << "\n";
     Test3 = Test2;
-    
+
     std::cout << "Test3 == Test2: " << (Test3 == Test2)<<"\n";
     Test3.InsertAfter(2, 5);
     Test3.InsertBefore(5, 3);
@@ -46,7 +47,7 @@ int main()
     {
         std::cout << Test3[i] << "\t";
     }
-   
+
     std::cout << "\nToVector():\n";
     std::vector<int> vec = Test.ToVector();
     for (auto& i : vec)
@@ -60,7 +61,7 @@ int main()
     {
         std::cout << i << "\t";
     }
- 
+
     Test4 = CheckMove(5, 2);
     std::cout << "\n";
     for (int i = 0; i < Test4.Size(); i++)
