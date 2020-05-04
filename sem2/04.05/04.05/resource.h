@@ -1,13 +1,13 @@
 //{{NO_DEPENDENCIES}}
 // Включаемый файл, созданный в Microsoft Visual C++.
-// Используется SP23.04.rc
+// Используется 04.05.rc
 //
 #define IDD_DIALOG1                     101
 #define IDC_EDIT1                       1001
-#define IDC_STATIC_MY1                  1002
-#define IDC_RADIO1                      1003
-#define IDC_RADIO2                      1004
-#define IDC_RADIO3                      1005
+#define IDC_BUTTON1                     1002
+#define IDC_BUTTON2                     1003
+#define IDC_LIST1                       1004
+#define IDC_BUTTON3                     1005
 
 // Next default values for new objects
 // 

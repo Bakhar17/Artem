@@ -12,6 +12,10 @@ public:
 	const int GetRed()const { return Red; };
 	const int GetGreen()const { return Green; };
 	const int GetBlue()const { return Blue; };
+	void SetRed(int);
+	void SetGreen(int);
+	void SetBlue(int);
+	void SetRating(double);
 private:
 	std::wstring name;
 	double rating;
@@ -20,12 +24,6 @@ private:
 	int Blue;
 };
 
-Participant::Participant(std::wstring name_, double rating_,int red_,int green_,int blue_) :name(name_), rating(rating_),Red(red_),Green(green_),Blue(blue_)
-{
-}
 
-Participant::~Participant()
-{
-}
 
 #endif // !PARTICIPANT_

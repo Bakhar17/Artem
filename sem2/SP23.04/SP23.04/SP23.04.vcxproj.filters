@@ -29,4 +29,12 @@
       <Filter>Файлы ресурсов</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Tasks.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+    <Text Include="OneAnswer.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
