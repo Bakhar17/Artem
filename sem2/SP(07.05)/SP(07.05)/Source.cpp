@@ -9,7 +9,7 @@
 
 int InitQuest(std::ifstream&, std::vector<Question>&);
 int InitAns(std::ifstream&, std::vector<int>&);
-int atnum = 0;//alternative question number
+
 
 int CheckAns(const std::vector<int>&, const std::vector<int>&);//number of right answers
 int GetAnswerA(HWND, int); //int — RadioButton code
@@ -31,6 +31,7 @@ INT_PTR CALLBACK DLG(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 	static std::vector<int> right_answer;
 	static std::vector<std::string> answers;
 	static std::vector<int> user_answer;
+	static int atnum = 0;//alternative question number
 	int k;
 	switch (message)
 	{
