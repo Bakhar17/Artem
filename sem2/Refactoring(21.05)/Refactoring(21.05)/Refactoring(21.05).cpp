@@ -6,6 +6,8 @@
 #include "Controller.h"
 #include <string>
 
+#define BUTTON_U 1001
+#define BUTTON_A 1002
 #define MAX_LOADSTRING 100
 
 // Глобальные переменные:
@@ -127,11 +129,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     static char stroka[100];
     static int xSize, ySize;
-
     static Model model;
     static View view(hWnd,hInst,&model);
     static Controller controller(&model, &view);
-
     static HWND hListBox,hButton,hButtonList,hEdit;
     switch (message)
     {
@@ -140,16 +140,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         xSize = LOWORD(lParam);
         ySize = HIWORD(lParam);
         InvalidateRect(hWnd, NULL, TRUE);
-
         break;
     }
     case WM_CREATE:
         hButton = CreateWindow("button", "Update",
-            WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 365, 30, 60, 25, hWnd, (HMENU)1001, hInst, NULL);
+            WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 365, 30, 60, 25, hWnd, (HMENU)BUTTON_U, hInst, NULL);
         hListBox = CreateWindow("listbox", NULL,
             WS_CHILD | WS_VISIBLE | LBS_NOTIFY | WS_BORDER | WS_VSCROLL, 10, 10, 350, 100, hWnd, NULL, hInst, NULL);
         hButtonList= CreateWindow("button", "Activate",
-            WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 468, 60, 60, 25, hWnd, (HMENU)1002, hInst, NULL);
+            WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 468, 60, 60, 25, hWnd, (HMENU)BUTTON_A, hInst, NULL);
         ShowWindow(hButtonList, SW_HIDE);
         hEdit = CreateWindow("edit", NULL, WS_CHILD | WS_VISIBLE | WS_BORDER | ES_LEFT, 365, 60, 100, 25, hWnd, (HMENU)1003, hInst, NULL);
         ShowWindow(hEdit, SW_HIDE);
@@ -160,7 +159,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // Разобрать выбор в меню:
             switch (wmId)
             {
-            case 1001: 
+            case BUTTON_U: 
             {
                 if (hListBox != NULL) {
                     DestroyWindow(hListBox);
@@ -173,7 +172,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 ShowWindow(hEdit, SW_SHOW);
             }
             break;
-            case 1002:
+            case BUTTON_A:
             {
                 CHAR buf[5];
                 SendMessage(hEdit, EM_GETLINE, (WPARAM)0, (LPARAM)buf);
