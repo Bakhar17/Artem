@@ -2,6 +2,9 @@
 #define DEQUE_H_
 
 #include "container.h"
+#include "Iterator.h"
+
+
 template<typename T>
 class AbstractDeque {
 public:
@@ -24,9 +27,9 @@ class Deque : public AbstractDeque<T>,
 			  private BiDirectionalList<T> 
 {
 public:
-	Deque()=default;
+	Deque() = default;
 	Deque(const std::initializer_list<T>&);
-	Deque(const Deque&)=default;
+	Deque(const Deque&);
 	virtual bool IsEmpty() const override;
 	virtual void PopBack() override;
 	virtual void PopFront() override;
@@ -40,6 +43,12 @@ public:
 	virtual typename BiDirectionalList<T>::Node* Head() const override;
 	virtual ~Deque() override;
 };
+
+
+template <class T>
+Deque<T>::Deque(const Deque& obj) {
+	*this = obj;
+}
 
 
 template<class T>
