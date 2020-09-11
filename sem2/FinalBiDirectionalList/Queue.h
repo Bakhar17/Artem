@@ -37,6 +37,8 @@
 
         template<typename T>
         Queue<T>::Queue(std::initializer_list<T> list) : BiDirectionalList<T>(list) {}
+
+
         template<typename T>
         T Queue<T>::Get() {
             return BiDirectionalList<T>::Front();
