@@ -36,7 +36,6 @@
         T Back();
         const T Front() const;
         const T Back()  const;
-        T operator[](int i);
         bool operator==(const BiDirectionalList<T>& other) const;
         bool operator!=(const BiDirectionalList<T>& other) const;
         BiDirectionalList& operator=(const BiDirectionalList<T>& other);
