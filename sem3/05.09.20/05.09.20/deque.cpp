@@ -31,6 +31,5 @@ int main() {
 		std::cout << iter3.CurrentItem();
 		iter3.Next();
 	}
-	//std::cout << (emptest == test2);
 	return 0;
 }
