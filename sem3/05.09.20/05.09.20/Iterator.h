@@ -10,6 +10,7 @@ public:
 	virtual void Next() = 0;
 	virtual bool IsDone() const = 0;
 	virtual T CurrentItem() const = 0;
+	virtual CreateIterator() = 0;
 };
 
 template <class T>
