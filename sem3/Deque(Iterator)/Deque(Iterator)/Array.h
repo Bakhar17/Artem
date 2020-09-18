@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <utility>
 #include <fstream>
-
+#include <iostream>
 template<class T>
 class Array
 {
@@ -27,7 +27,6 @@ public:
 	const T Back()const;
 	void PopBack();
 	void PopFront();
-
 	~Array();
 protected:
 	void Clear();
@@ -37,12 +36,13 @@ private:
 	int capacity_=0;
 };
 
+
 template<class T>
 void Array<T>::Clear() {
 	delete[] data_;
-	data_ = nullptr;
 	size_ = capacity_ = 0;
 }
+
 
 template<class T>
 Array<T>::Array(int size) :size_(size)
@@ -50,6 +50,7 @@ Array<T>::Array(int size) :size_(size)
 	capacity_ = size + 20;
 	data_ = new T [capacity_];
 }
+
 
 template<class T>
 Array<T>::Array(const Array<T>& other):size_(other.size_),capacity_(other.capacity_)
@@ -60,8 +61,6 @@ Array<T>::Array(const Array<T>& other):size_(other.size_),capacity_(other.capaci
 		data_[i] = other.data_[i];
 	}
 }
-
-
 
 
 template<class T>
@@ -75,6 +74,7 @@ Array<T>::Array(const std::initializer_list<T>& list) : size_(list.size()), capa
 		k++;
 	}
 }
+
 
 template<class T>
 Array<T>::Array(Array<T>&& other) noexcept :data_(other.data_),size_(other.size_),capacity_(other.capacity_)
@@ -99,11 +99,13 @@ const bool Array<T>::operator==(const Array<T>& other)const
 	return 1;
 }
 
+
 template<class T>
 const bool Array<T>::operator!=(const Array<T>& other)const
 {
 	return (!(*this==other));
 }
+
 
 template<class T>
 void Array<T>::PushFront(const T&obj)
@@ -127,6 +129,7 @@ void Array<T>::PushFront(const T&obj)
 	}
 }
 
+
 template<class T>
 void Array<T>::PushBack(const T& obj)
 {
@@ -145,11 +148,13 @@ void Array<T>::PushBack(const T& obj)
 	}
 }
 
+
 template<class T>
 const bool Array<T>::IsEmpty() const
 {
 	return (size_==0);
 }
+
 
 template<class T>
 const int Array<T>::Size() const
@@ -157,17 +162,20 @@ const int Array<T>::Size() const
 	return this->size_;
 }
 
+
 template<class T>
 const T Array<T>::Front() const
 {
 	return data_[0];
 }
 
+
 template<class T>
 const T Array<T>::Back() const
 {
 	return data_[size_-1];
 }
+
 
 template<class T>
 void Array<T>::PopBack()
@@ -177,6 +185,7 @@ void Array<T>::PopBack()
 	}
 	size_--;
 }
+
 
 template<class T>
 void Array<T>::PopFront()
@@ -221,6 +230,7 @@ void Swap(T& a, T& b)
 	b = std::move(tmp);
 }
 
+
 template<class T>
 Array<T>& Array<T>::operator=(Array<T>&& other)noexcept
 {
@@ -237,11 +247,13 @@ Array<T>& Array<T>::operator=(Array<T>&& other)noexcept
 	return *this;
 }
 
+
 template<class T>
 T& Array<T>::operator[](int index) {
 	if (index >= size_) throw "bad index";
 	return data_[index];
 }
+
 
 template<class T>
 const T& Array<T>::operator[](int index)const {
