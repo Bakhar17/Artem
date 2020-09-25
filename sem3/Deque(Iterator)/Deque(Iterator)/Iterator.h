@@ -18,20 +18,20 @@ template<class T>
 class DequeIterator :public Iterator<T>
 {
 public:
-	DequeIterator(const Deque<T>* obj);
+	DequeIterator(Deque<T>* obj);
 	virtual void First()override;
 	virtual void Next()override;
 	virtual const bool IsDone()const override;
 	virtual T CurrentItem()const override;
 private:
-	const Deque<T>* _deque;
+	Deque<T>* _deque;
 	int _current;
 	
 };
 
 
 template<class T>
-DequeIterator<T>::DequeIterator(const Deque<T>* obj):_deque(obj),_current(0){}
+DequeIterator<T>::DequeIterator(Deque<T>* obj):_deque(obj),_current(0){}
 
 
 template<class T>

@@ -13,21 +13,53 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\model">
+      <UniqueIdentifier>{cc731f0e-fec9-4d26-9bbd-af8e49d80921}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\MVC">
+      <UniqueIdentifier>{4c4364ba-b31d-472c-a9b5-098192124f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Integer.cpp">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Исходные файлы\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Исходные файлы\MVC</Filter>
+    </ClCompile>
     <ClCompile Include="Deque.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\MVC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Iterator.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>Файлы заголовков\model</Filter>
     </ClInclude>
     <ClInclude Include="Deque.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Файлы заголовков\model</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Iterator.h">
+    <ClInclude Include="Controller.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Deque(Iterator).rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

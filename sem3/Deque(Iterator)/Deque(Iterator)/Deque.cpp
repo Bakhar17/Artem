@@ -1,72 +1,62 @@
-#include <iostream>
-#include "Iterator.h"
+#include <windows.h>
+#include "resource.h"
 #include "Deque.h"
+#include "Iterator.h"
+#include "Integer.h"
+#include "Controller.h"
 
-Array<int> CheckMove(int a) {
-	Array<int> move_test(a);
-	return move_test;
+INT_PTR CALLBACK DlgMain(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    static Deque<Integer> deque = { 5,7,5,15,3,6 };
+    static View content(hwndDlg, &deque);
+    static Controller contr(&content, &deque);
+    switch (uMsg)
+    {
+    case WM_INITDIALOG:
+        contr.Update();
+        break;
+    case WM_CLOSE:
+        EndDialog(hwndDlg, 0);
+        break;
+    case WM_COMMAND:
+    {
+        switch (LOWORD(wParam))
+        {
+        case IDPBack:
+        {
+            contr.PushB();
+            break;
+        }
+        case IDPFRONT:
+        {
+            contr.PushF();
+            break;
+        }
+        case IDPOPB:
+        {
+            contr.PopB();
+            break;
+        }
+        case IDPOPF:
+        {
+            contr.PopF();
+            break;
+        }
+        }
+    }
+    return TRUE;
+
+
+    default:
+        return FALSE;
+    }
+    return TRUE;
 }
-Deque<int> CheckMode(int a) {
-	Deque<int> move_test;
-	move_test.PushBack(a);
-	return move_test;
-}
-
-int main() {
-	{
-	Array<int> test{ 1,5,2,5 };
-	Array<int> test2(test);
-	std::cout << (test == test2);
-	test2 = test;
-	std::cout << test2[2];
-	test=CheckMove(13);
 
 
-	Array<int> testPush{ 1,3,5,2};
-	testPush.PushBack(4);
-	std::cout << testPush.Back();
-	std::cout << testPush.Size();
-	testPush.PushFront(2);
-	std::cout << testPush.Front();
-	std::cout << testPush.Size();
-	testPush.PopBack();
-	std::cout << testPush.Back();
-	std::cout << testPush.Size();
-	testPush.PopFront();
-	std::cout << testPush.Front();
-	std::cout << testPush.Size();
-	std::cout << "\n\n\n";
-	}//also checked destructors
 
-
-	Deque<int> test{1,2,3,4};
-	std::cout << test.Back();
-	std::cout << test.Front();
-	std::cout << test.Size();
-	test.PopBack();
-	test.PopFront();
-	std::cout << test.Back();
-	std::cout << test.Front();
-	std::cout << test.Size();
-	test = CheckMode(13);
-
-
-	Deque<int> test1;
-	std::cout << "\n\n";
-	std::cout << (test == test1);
-	std::cout <<( test != test1);
-	test = test1;
-	std::cout << (test == test1);
-	std::cout << (test != test1);
-	std::cout << "\n\n\n";
-
-
-	Deque<int> test2{ 1,2,3,4 };
-	DequeIterator<int> iter(&test2);
-	for (iter.First(); !iter.IsDone(); iter.Next())
-	{
-		std::cout << iter.CurrentItem() << " ";
-	}
-	system("pause");
-	return 0;
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, int nCmdShow)
+{
+    DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgMain);
+    return 0;
 }

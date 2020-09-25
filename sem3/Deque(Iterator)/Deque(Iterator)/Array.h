@@ -49,6 +49,10 @@ Array<T>::Array(int size) :size_(size)
 {
 	capacity_ = size + 20;
 	data_ = new T [capacity_];
+	for (int i = 0; i < size_; i++)
+	{
+		data_[i] = 0;
+	}
 }
 
 
@@ -110,7 +114,7 @@ const bool Array<T>::operator!=(const Array<T>& other)const
 template<class T>
 void Array<T>::PushFront(const T&obj)
 {
-	if (size_ > capacity_) {
+	if (size_ < capacity_) {
 		for (int i = size_-1; i != -1; i--)
 		{
 			data_[i + 1] = data_[i];
@@ -133,7 +137,7 @@ void Array<T>::PushFront(const T&obj)
 template<class T>
 void Array<T>::PushBack(const T& obj)
 {
-	if (size_ > capacity_) {
+	if (size_ < capacity_) {
 		data_[size_] = obj;
 		size_++;
 	}
@@ -181,7 +185,7 @@ template<class T>
 void Array<T>::PopBack()
 {
 	if (size_ == 0) {
-		throw "no data";
+		return;
 	}
 	size_--;
 }
@@ -190,7 +194,7 @@ void Array<T>::PopBack()
 template<class T>
 void Array<T>::PopFront()
 {
-	if (size_ == 0) throw "no data";
+	if (size_ == 0) return;
 	size_--;
 	for (int i = 0; i < size_; i++)
 	{

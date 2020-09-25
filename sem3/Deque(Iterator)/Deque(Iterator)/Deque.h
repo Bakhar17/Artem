@@ -2,7 +2,10 @@
 #define DEQUE_H_
 #include "Array.h"
 
-
+template<class T>
+class Iterator;
+template <class T>
+class DequeIterator;
 template<class T>
 class AbstractDeque
 {
@@ -46,7 +49,7 @@ public:
 	const bool operator!=(const Deque<T>& other);
 	T& operator[](int);
 	const T& operator[](int)const;
-	friend std::ostream& operator<<(std::ostream& out, const Deque<T>& obj);
+	DequeIterator<T>* CreateIterator() { return new DequeIterator<T>(this); };
 private:
 	virtual void Clear()override;
 };
@@ -167,4 +170,6 @@ template<class T>
 const T& Deque<T>::operator[](int index)const {
 	return Array<T>::operator[](index);
 }
+
+
 #endif // !DEQUE_H_
