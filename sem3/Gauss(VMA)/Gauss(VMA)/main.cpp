@@ -118,16 +118,16 @@ int main() {
 		}
 		matrixX2[i] = (matrixF2[i] - gauss) / matrixA2[i][i];
 	}
-	//std::cout << "\n\n";
-	//std::cout.setf(std::ios::fixed);
-	//std::cout.precision(20); //0 - число символов после точки
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	std::cout << matrixX2[i]<<" ";
-	//}
+	std::cout << "\n\n";
+	std::cout.setf(std::ios::fixed);
+	std::cout.precision(20); //0 - число символов после точки
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << matrixX2[i]<<" ";
+	}
 	
 
-	//A*x`:
+	/*a*x`:*/
 
 	double matrixF3[10];
 	for (int i = 0; i < 10; i++)
@@ -152,6 +152,7 @@ int main() {
 	{
 		if (matrixnorm < abs(matrixF3[i])) matrixnorm = matrixF3[i];
 	}
+	std::cout << "\nMatrixnorm " << matrixnorm;
 
 	double matrixX3[10];//x-x`
 	for (int i = 0; i < 10; i++)
@@ -163,7 +164,7 @@ int main() {
 	{
 		if (xnorm < abs(matrixX3[i])) xnorm = matrixX3[i];
 	}
-
+	std::cout << "\nXnorm " << xnorm;
 	double detA=1;
 	for (int i = 0; i < 10; i++)
 	{

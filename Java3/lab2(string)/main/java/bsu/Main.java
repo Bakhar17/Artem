@@ -1,23 +1,42 @@
 package bsu;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static int posPoint(StringBuffer buf,int pos){
-        for (int i = pos+1; i < buf.length(); i++) {
-            if(buf.charAt(i)=='.'){
-                pos =i;
-                return pos;
-            }
+    public static StringBuffer refactoring(StringTokenizer token) {
+        StringBuffer result = new StringBuffer();
+        result.append(token.nextToken());
+        while (token.hasMoreTokens()) {
+            result.append(token.nextToken());
+            result.append(delete(token.nextToken()));
         }
-        return -1;
+        return result;
     }
-    public static boolean checkSubstring(StringBuffer buf,int pos){
-        if(Character.isDigit(buf.charAt(pos+1))&& Character.isDigit(buf.charAt(pos+2))){
-            return true;
+
+    public static StringBuffer delete(String text) {
+        StringBuffer temp = new StringBuffer(text);
+        if (checkSubstring(temp)) {
+            int n = 0;
+            for (int k = 2; k < temp.length(); k++) {
+                if (!Character.isDigit(temp.charAt(k))) break;
+                n++;
+            }
+            temp.delete(2, 2 + n);
+        }
+        return temp;
+    }
+
+    public static boolean checkSubstring(StringBuffer buf) {
+        if (buf.length() > 2) {
+            if (Character.isDigit(buf.charAt(0)) && Character.isDigit(buf.charAt(1))) {
+                return true;
+            }
         }
         return false;
     }
+
     public static void main(String[] args) {
-        StringBuffer buf = new StringBuffer(args[0]);
+        StringTokenizer token = new StringTokenizer(args[0], ".", true);
+        StringBuffer buf = new StringBuffer(refactoring(token));
         System.out.println(buf);
         return;
     }
