@@ -31,5 +31,10 @@ public class Main {
             }
             System.out.print("\n");
         }
+
+        String hello="hello";
+        String helloBack="hell";
+        helloBack+="o";
+        System.out.println(hello==helloBack);
     }
 }
