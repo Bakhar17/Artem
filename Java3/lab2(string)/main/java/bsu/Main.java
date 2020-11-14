@@ -4,25 +4,30 @@ import java.util.StringTokenizer;
 public class Main {
     public static StringBuffer refactoring(StringTokenizer token) {
         StringBuffer result = new StringBuffer();
-        result.append(token.nextToken());
+        StringBuffer temp=new StringBuffer();
         while (token.hasMoreTokens()) {
-            result.append(token.nextToken());
-            result.append(delete(token.nextToken()));
+            temp.delete(0,temp.length());
+            temp.append(token.nextToken());
+            if(temp.charAt(0)!='.'){
+                result.append(delete(temp));
+            }else{
+                result.append(".");
+            }
         }
+
         return result;
     }
 
-    public static StringBuffer delete(String text) {
-        StringBuffer temp = new StringBuffer(text);
-        if (checkSubstring(temp)) {
+    public static StringBuffer delete(StringBuffer text) {
+        if (checkSubstring(text)) {
             int n = 0;
-            for (int k = 2; k < temp.length(); k++) {
-                if (!Character.isDigit(temp.charAt(k))) break;
+            for (int k = 2; k < text.length(); k++) {
+                if (!Character.isDigit(text.charAt(k))) break;
                 n++;
             }
-            temp.delete(2, 2 + n);
+            text.delete(2, 2 + n);
         }
-        return temp;
+        return text;
     }
 
     public static boolean checkSubstring(StringBuffer buf) {
