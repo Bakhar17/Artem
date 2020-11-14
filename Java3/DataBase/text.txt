@@ -1,2 +1,0 @@
-ID: 0 Name: Artem Surname: Bakhar Birthday: 17/11/2001 Sex: Male Education: Bsu/Famcs Married: Yes Children: 3 Judged: No Job: Itra Salary: 1500.0 Date of start: 15/3/2009
-ID: 1 Name: Ivan Surname: Kolesnok Birthday: 12/11/2001 Sex: Female Education: Bsu/Famcs Married: No Children: 3 Judged: No Job: null

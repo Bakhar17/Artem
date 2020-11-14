@@ -24,7 +24,7 @@ public abstract class Series {
         this.first = first;
     }
 
-    Series(double first, double denominator) {
+    public Series(double first, double denominator) {
         this.first = first;
         this.denominator = denominator;
     }

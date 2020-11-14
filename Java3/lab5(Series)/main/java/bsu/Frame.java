@@ -2,31 +2,23 @@ package bsu;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
 
 class Frame extends JFrame {
-    private final Series[] series;
-    private int itemNumber = 0;
+    private Series series;
     private Container container;
     private JTextField[] infoFields;
 
     private void createComboBox() {
         JComboBox<String> jComboBox = new JComboBox<>(new String[]{"Liner", "Exponential"});
-        jComboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getItem().equals("Liner")) {
-                    itemNumber = 0;
-                } else {
-                    itemNumber = 1;
-                }
-                updateInfoPanel();
+        jComboBox.addItemListener(e -> {
+            if (e.getItem().equals("Liner")) {
+                series=new Liner(0,0);
+            } else {
+                series=new Exponential(0,0);
             }
+            updateInfoPanel();
         });
         JPanel comboBox = new JPanel();
         comboBox.add(jComboBox);
@@ -36,27 +28,24 @@ class Frame extends JFrame {
 
     private void createInfoPanel() {
         infoFields = new JTextField[2];
-        infoFields[0] = new JTextField("first=" + series[itemNumber].getFirst());
+        infoFields[0] = new JTextField("first=" + series.getFirst());
         infoFields[0].setEditable(false);
-        infoFields[1] = new JTextField("denominator=" + series[itemNumber].getDenominator());
+        infoFields[1] = new JTextField("denominator=" + series.getDenominator());
         infoFields[1].setEditable(false);
         JButton buttonSaveToFile = new JButton("Save to file");
-        buttonSaveToFile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileopen = new JFileChooser();
+        buttonSaveToFile.addActionListener(e -> {
+            JFileChooser fileopen = new JFileChooser();
 
-                int ret = fileopen.showDialog(null, "Выберете файл");
-                if (ret == JFileChooser.APPROVE_OPTION) {
-                    File file = fileopen.getSelectedFile();
-                    try {
-                        series[itemNumber].saveToFile(file);
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
+            int ret = fileopen.showDialog(null, "Выберете файл");
+            if (ret == JFileChooser.APPROVE_OPTION) {
+                File file = fileopen.getSelectedFile();
+                try {
+                    series.saveToFile(file);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
                 }
-
             }
+
         });
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
@@ -68,8 +57,8 @@ class Frame extends JFrame {
     }
 
     private void updateInfoPanel() {
-        infoFields[0].setText("first=" + series[itemNumber].getFirst());
-        infoFields[1].setText("denominator=" + series[itemNumber].getDenominator());
+        infoFields[0].setText("first=" + series.getFirst());
+        infoFields[1].setText("denominator=" + series.getDenominator());
     }
 
     private void createFunctionPanel() {
@@ -78,24 +67,18 @@ class Frame extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout());
         JButton buttonFirst = new JButton("Set first");
         JTextField textFirst = new JTextField(5);
-        buttonFirst.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                series[itemNumber].setFirst(Reader.readData(textFirst));
-                textFirst.setText("");
-                updateInfoPanel();
-            }
+        buttonFirst.addActionListener(e -> {
+            series.setFirst(Reader.readData(textFirst));
+            textFirst.setText("");
+            updateInfoPanel();
         });
 
         JButton buttonDenominator = new JButton("Set denominator");
         JTextField textDenominator = new JTextField(5);
-        buttonDenominator.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                series[itemNumber].setDenominator(Reader.readData(textDenominator));
-                textDenominator.setText("");
-                updateInfoPanel();
-            }
+        buttonDenominator.addActionListener(e -> {
+            series.setDenominator(Reader.readData(textDenominator));
+            textDenominator.setText("");
+            updateInfoPanel();
         });
         buttonPanel.add(buttonFirst);
         buttonPanel.add(textFirst);
@@ -106,12 +89,7 @@ class Frame extends JFrame {
         JButton buttonShow = new JButton("Show");
         JTextField textSeries = new JTextField(20);
         textSeries.setEditable(false);
-        buttonShow.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textSeries.setText(series[itemNumber].toString());
-            }
-        });
+        buttonShow.addActionListener(e -> textSeries.setText(series.toString()));
         showPanel.add(buttonShow);
         showPanel.add(textSeries);
 
@@ -122,9 +100,9 @@ class Frame extends JFrame {
         container.add(functionPanel, BorderLayout.SOUTH);
     }
 
-    public Frame(Series[] series) {
+    public Frame() {
         super("My Series");
-        this.series = series;
+        series=new Liner(0,0);
         createComboBox();
         createInfoPanel();
         createFunctionPanel();
