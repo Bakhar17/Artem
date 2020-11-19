@@ -28,17 +28,6 @@ public class Matrix {
 
     }
 
-    @Override
-    public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                buffer.append(String.format("%.2f ", matrix[i][j]));
-            }
-            buffer.append("\n");
-        }
-        return new String(buffer);
-    }
     private double countIJ(int i,int j){
         double sum=0;
         for (int k = 0; k < 10; k++) {
@@ -54,5 +43,16 @@ public class Matrix {
             }
         }
         return transformedMatrix;
+    }
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                buffer.append(String.format("%.2f ", matrix[i][j]));
+            }
+            buffer.append("\n");
+        }
+        return new String(buffer);
     }
 }

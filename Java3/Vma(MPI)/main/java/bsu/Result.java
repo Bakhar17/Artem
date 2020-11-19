@@ -18,6 +18,17 @@ public class Result {
             }
         }
     }
+    public double[] transformVectorGauss(){
+        double[][] matrixT=matrix.getMatrixT();
+        double[] transformedToGauss=new double[10];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                transformedToGauss[i]+=matrixT[i][j]*vectorF[j];
+            }
+        }
+        return transformedToGauss;
+    }
+
 
     @Override
     public String toString() {
@@ -32,15 +43,5 @@ public class Result {
         }
         buffer.append("\n");
         return new String(buffer);
-    }
-    public double[] transformVectorGauss(){
-        double[][] matrixT=matrix.getMatrixT();
-        double[] transformedToGauss=new double[10];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                transformedToGauss[i]+=matrixT[i][j]*vectorF[j];
-            }
-        }
-        return transformedToGauss;
     }
 }
