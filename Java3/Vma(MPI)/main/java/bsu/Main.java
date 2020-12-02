@@ -21,10 +21,35 @@ public class Main {
             System.out.printf("%.2f ",x[i]);
         }*/
         MethodRelax start2=new MethodRelax(transformedMatrix,transformedVector);
-        double[] x=start2.startRelax(1.8);
+        System.out.println("start");
+        double[] x;
+        double[] x1=result.getVectorX();
+        x=start2.startRelax(0.2);
         System.out.println("\n"+start2.getK()+1);
         for (int i = 0; i < 10; i++) {
-            System.out.printf("%.2f ",x[i]);
+            System.out.println(x1[i]-x[i]);
+        }
+        x=start2.startRelax(0.5);
+        System.out.println("\n"+start2.getK()+1);
+        x=start2.startRelax(0.8);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(x1[i]-x[i]);
+        }
+        System.out.println("\n"+start2.getK()+1);
+        x=start2.startRelax(1);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(x1[i]-x[i]);
+        }
+        System.out.println("\n"+start2.getK()+1);
+        x=start2.startRelax(1.3);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(x1[i]-x[i]);
+        }
+        System.out.println("\n"+start2.getK()+1);
+        x=start2.startRelax(1.8);
+        System.out.println("\n"+start2.getK()+1);
+        for (int i = 0; i < 10; i++) {
+            System.out.print(x1[i]-x[i]);
         }
 
     }

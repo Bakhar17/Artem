@@ -17,7 +17,7 @@ public class MyKeyAdapter extends KeyAdapter {
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        if (e.getKeyChar()!='\b'&& button.isFocusPainted() ) {
+        if (e.getKeyChar()!='\b' && button.isFocusPainted() ) {
             button.setText(button.getText() + e.getKeyChar());
         }
     }

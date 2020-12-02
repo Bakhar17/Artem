@@ -1,0 +1,6 @@
+Bakhar 1 8.5
+Mask 2 9.6
+Mas 2 9.6
+Mak 0 9.6
+Msk 3 9.6
+Kage 4 8.5

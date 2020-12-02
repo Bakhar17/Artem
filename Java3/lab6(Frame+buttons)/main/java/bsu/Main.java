@@ -1,14 +1,12 @@
 package bsu;
 
-import javax.swing.*;
-
 public class Main {
     public static void main(String[] args) {
-        JFrame frame1=Frame.createFrame1();
-        JFrame frame2=Frame.createFrame2();
-
-        frame1.setVisible(true);
+        Frame frame=new Frame();
+        Frame frame2=new Frame();
+        //frame.createFrame1();
+        //frame.setVisible(true);
+        frame2.createFrame2();
         frame2.setVisible(true);
-
     }
 }

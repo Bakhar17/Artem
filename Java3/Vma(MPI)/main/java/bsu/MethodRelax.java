@@ -32,7 +32,7 @@ public class MethodRelax {
             for (int i = 0; i < 10; i++) {
                 vectorForNorm[i] = vectorX[i] - vectorForNorm[i];
             }
-            if (checkNorm(vectorForNorm) < 0.001) {
+            if (checkNorm(vectorForNorm) < 0.00001) {
                 System.out.println(checkNorm(vectorForNorm));
                 flag = false;
             }

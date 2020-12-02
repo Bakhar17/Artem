@@ -2,6 +2,11 @@ package bsu;
 
 public class Result {
     private final double[] vectorX;
+
+    public double[] getVectorX() {
+        return vectorX;
+    }
+
     private final double[] vectorF;
     private final Matrix matrix;
     public Result(Matrix matrix){

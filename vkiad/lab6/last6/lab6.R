@@ -1,0 +1,75 @@
+library(MASS)
+
+x1 = rnorm(20, mean=0, sd=5/3)
+x2 = rnorm(10, mean=5, sd=5/3)
+
+y1 = rnorm(20, mean=0, sd=5/3)
+y2 = rnorm(10, mean=5, sd=5/3)
+
+xy = cbind(c(x1, x2), c(y1, y2))
+xy
+
+n = 30
+nTrain = floor(0.7 * n)
+nTest = n - nTrain
+
+idxTrain = sample(1:n, nTrain)
+idxTest = (1:n)[!(1:n %in% idxTrain)]
+
+datTrain = xy[idxTrain,]
+datTest = xy[idxTest,] 
+
+clusterization = kmeans(xy, 2)
+clusterizationCluster = clusterization$cluster
+
+clusterizationTrain = clusterizationCluster[idxTrain]
+clusterizationTest = clusterizationCluster[idxTest]
+
+mod = qda(datTrain, clusterizationTrain)
+clusterizationTestEst = predict(mod, datTest)$class
+sum(clusterizationTestEst != clusterizationTest) / nTest
+idx = idxTest[clusterizationTestEst != clusterizationTest]
+
+plot(xy, type="n")
+points(datTrain, pch=24, col=c("blue", "red")[clusterizationTrain])
+legend("topleft", legend=c("Train1", "Train2"), pch=24, col=c("blue", "red"))
+
+points(datTest, pch=21, col=c("blue", "red")[clusterizationTest])
+legend("topleft", legend=c("Train1", "Train2", "Test1", "Test2"), pch=c(24, 24, 21, 21), col=c("blue", "red"))
+
+if (length(idx) == 1) {
+  points(xy[idx, 1], xy[idx, 2], col="green", pch=4) 
+} else {
+  points(xy[idx,], col="red", pch=4) 
+}
+
+legend("topleft", legend=c("Train1", "Train2", "Test1", "Test2", "Mistake"), pch=c(24, 24, 21, 21, 4),
+       col=c("blue", "red", "blue", "red", "green"))
+
+idd = sample(1:nTrain, 0.2 * nTrain)
+for (i in idd) {
+  clusterizationTrain[i] = ifelse(clusterizationTrain[i] == 1, 2, 1)
+}
+
+mod2 = qda(datTrain, clusterizationTrain)
+clusterizationTestEst<-predict(mod2, datTest)$class
+sum(clusterizationTestEst != clusterizationTest) / nTest
+idx2 = idxTest[clusterizationTestEst != clusterizationTest]
+
+plot(xy, type="n")
+points(datTrain, pch=24, col=c("blue", "red")[clusterizationTrain])
+legend("topleft", legend=c("Train1", "Train2"), pch=24, col=c("blue", "red"))
+
+points(datTest, pch=21, col=c("blue", "red")[clusterizationTest])
+legend("topleft",legend=c("Train1", "Train2", "Test1", "Test2"), pch=c(24, 24, 21, 21),
+       col=c("blue", "red", "blue", "red"))
+
+if (length(idx2) == 1) {
+  points(xy[idx2, 1], xy[idx2, 2], col="red", pch=4) 
+} else {
+  points(xy[idx2,], col="green", pch=4)
+}
+
+legend("topleft", legend=c("Train1", "Train2", "Test1", "Test2", "Mistake"), pch=c(24, 24, 21, 21, 4),
+       col=c("blue", "red", "blue", "red", "green"))
+

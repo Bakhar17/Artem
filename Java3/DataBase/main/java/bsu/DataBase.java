@@ -3,7 +3,7 @@ package bsu;
 import java.util.*;
 
 public class DataBase {
-    ArrayList<Man> base = new ArrayList<>();
+    private ArrayList<Man> base = new ArrayList<>();
 
     public void add(Man man) {
         this.base.add(man);

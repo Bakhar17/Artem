@@ -4,25 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Frame {
+public class Frame extends JFrame {
+    public Frame() {
+        super("lab 6");
+    }
 
-    public static JFrame createFrame1() {
-        JFrame frame = new JFrame("Lab 6.1");
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(600, 380));
+    public JFrame createFrame1() {
+        setTitle("Lab 6.1");
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(new Dimension(600, 380));
 
         JPanel infoPanel = new JPanel();
         JLabel text = new JLabel();
         infoPanel.add(text);
-        frame.add(infoPanel, BorderLayout.SOUTH);
+        add(infoPanel, BorderLayout.SOUTH);
         JPanel buttonPanel = new JPanel(null);
         JButton button = new JButton("button");
         button.setLocation(100, 50);
         button.setSize(100, 30);
         buttonPanel.add(button);
-        frame.add(buttonPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.CENTER);
 
 
         buttonPanel.addMouseMotionListener(new MouseAdapter() {
@@ -73,50 +76,51 @@ public class Frame {
             }
         });
 
-        return frame;
+        return this;
     }
 
-    public static JFrame createFrame2() {
-        JFrame frame = new JFrame("Lab 6.2");
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(550, 190));
+    public JFrame createFrame2() {
+        setTitle("Lab 6.1");
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(new Dimension(550, 190));
 
         JLabel question = new JLabel("Довольны ли Вы стипендией?");
-        JPanel questionPanel=new JPanel();
+        JPanel questionPanel = new JPanel();
         questionPanel.add(question);
-        frame.add(questionPanel,BorderLayout.NORTH);
+        add(questionPanel, BorderLayout.NORTH);
 
 
-        JButton yesButton=new JButton("Да");
-        yesButton.addActionListener(e -> JOptionPane.showMessageDialog(frame,"Спасибо!","Кнопка 1", JOptionPane.INFORMATION_MESSAGE));
+        JButton yesButton = new JButton("Да");
+        yesButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Спасибо!", "Кнопка 1", JOptionPane.INFORMATION_MESSAGE));
         yesButton.setSize(100, 30);
         yesButton.setLocation(100, 25);
         yesButton.setFocusPainted(false);
-        JButton noButton=new JButton("Нет");
+        JButton noButton = new JButton("Нет");
         noButton.setSize(100, 30);
         noButton.setLocation(300, 25);
         noButton.addMouseListener(new MouseAdapter() {
-            private int xPos=1;
-            private int yPos=1;
+            private int xPos = 1;
+            private int yPos = 1;
+
             @Override
             public void mouseEntered(MouseEvent e) {
-                Point nowPoint= new Point();
+                Point nowPoint = new Point();
                 noButton.getLocation(nowPoint);
-                nowPoint.x+=xPos*150;
-                xPos*=-1;
-                nowPoint.y+=yPos*15;
-                yPos*=-1;
+                nowPoint.x += xPos * 150;
+                xPos *= -1;
+                nowPoint.y += yPos * 15;
+                yPos *= -1;
                 noButton.setLocation(nowPoint);
             }
         });
-        JPanel buttonsPanel=new JPanel(null);
+        JPanel buttonsPanel = new JPanel(null);
 
         buttonsPanel.add(yesButton);
         buttonsPanel.add(noButton);
-        frame.add(buttonsPanel,BorderLayout.CENTER);
-        return frame;
+        add(buttonsPanel, BorderLayout.CENTER);
+        return this;
     }
 
 }
