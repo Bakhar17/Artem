@@ -1,6 +1,7 @@
 package bsu;
 
 import java.io.File;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,5 +26,7 @@ public class Main {
         System.out.println(students.getMax());
         System.out.println(students.getMin());
         System.out.println(students.toString());
+        Collections.sort(students,null);
+        System.out.println(students);
     }
 }

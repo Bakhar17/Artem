@@ -24,8 +24,8 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
-        students.sort(null);
-        System.out.println(students.toString());
+/*        students.sort(null);
+        System.out.println(students.toString());*/
         //System.out.println(students.getStudentGroup(1, 4));
         //System.out.println(students.getStudentOfFaculty(Faculty.FUN));
         System.out.println(students.getStudentsYoungerThan(1800));

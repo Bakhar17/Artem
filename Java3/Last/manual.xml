@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+<student>
+    <id>1923056</id>
+    <surname>Bakhar</surname>
+<session>
+<subject name="P.E." mark="9.3"></subject>
+<subject name="progr" mark="9.0"></subject>
+<subject name="math" mark="9.3"></subject>
+<subject name="eng" mark="9.3"></subject>
+</session>
+</student>
+<student>
+    <id>1923023</id>
+    <surname>Bakhar</surname>
+<session>
+<subject name="math" mark="8.5"></subject>
+</session>
+</student>
+<student>
+    <id>1923032</id>
+    <surname>Vin</surname>
+<session>
+<subject name="math" mark="9.3"></subject>
+</session>
+</student>
+<student>
+    <id>1923040</id>
+    <surname>White</surname>
+<session>
+<subject name="history" mark="6.7"></subject>
+<subject name="rwq" mark="4.0"></subject>
+</session>
+</student>
+<student>
+    <id>1924658</id>
+    <surname>Grisha</surname>
+<session>
+<subject name="asd" mark="9.6"></subject>
+<subject name="asdafea" mark="9.4"></subject>
+</session>
+</student>
+<student>
+    <id>1924658</id>
+    <surname>Saha</surname>
+<session>
+<subject name="asfas" mark="5.6"></subject>
+</session>
+</student>
+</students>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student name="Petr">
+    <yearOfStudy> 2</yearOfStudy>
+  </student>
+  <student name="Ivan">
+    <yearOfStudy> 1</yearOfStudy>
+  </student>
+</students>
