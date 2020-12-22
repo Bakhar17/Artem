@@ -51,6 +51,8 @@ public class Frame extends JFrame {
         JMenuBar barMenu = new JMenuBar();
         JMenu menu = new JMenu("Файл");
         JMenuItem menuItem = new JMenuItem("Открыть");
+
+
         menuItem.addActionListener(e -> {
             JFileChooser jFileChooser = new JFileChooser();
             jFileChooser.setAcceptAllFileFilterUsed(false);
@@ -68,6 +70,9 @@ public class Frame extends JFrame {
                 }
             }
         });
+
+
+
         menu.add(menuItem);
         JMenuItem menuItem2 = new JMenuItem("Добавить");
         menuItem2.addActionListener(e -> {
